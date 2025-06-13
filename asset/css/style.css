@@ -1,7 +1,5 @@
         /*par defaut*/
 * {
-    margin: 0;
-    padding: 0;
     scrollbar-color:green/*Couleur à changer en fonction charte graphique*/
 }
 
@@ -9,10 +7,20 @@ img {
     min-width: 25%;
 }
 
+.flex-none{
+    margin-right: 5%;
+}
+
 .flex-none :hover{
     background-color:aquamarine;/*Couleur à changer en fonction charte graphique*/
     border-color:aquamarine; /*Couleur à changer en fonction charte graphique*/
 }
+
+.btn-menu {
+    width:30px;
+    height: 30px;
+}
+
 
 
         /*Style MOBILE*/
@@ -20,9 +28,14 @@ img {
     img {
     max-width: 25%;
     }
+
 }
 
+/*Style LAPTOP Medium*/
 
+
+
+/*Style LAPTOP Large*/
 
 
 
