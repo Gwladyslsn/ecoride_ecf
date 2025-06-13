@@ -16,7 +16,7 @@
     <div class="navbar bg-base-100 shadow-sm ">
         <div class="flex items-center">
             <div class="justify-around">
-                <a href="localhost:8000"> <!-- A MODIFIER -->
+                <a href="http://localhost:8000/?controller=home"> <!-- A MODIFIER -->
                     <img src="../asset/image/logoEcoride.png" alt="Logo Ecoride" class="rounded-full">
                 </a>
             </div>
