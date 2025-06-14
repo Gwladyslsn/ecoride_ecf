@@ -1,28 +1,28 @@
-
 /*Reset du user agent*/
-*{
-    text-decoration:none;
-    box-sizing:border-box; /*Pour que le contenu ne depasse pas le contenant*/
+* {
+    text-decoration: none;
+    box-sizing: border-box;
+    /*Pour que le contenu ne depasse pas le contenant*/
     list-style: none;
-} 
+}
 
 /*GENERAL*/
 
-.logo {
-    min-width: 25%;
-}
 
-.flex-none{
+
+.flex-none {
     margin-right: 5%;
 }
 
-.flex-none :hover{
-    background-color:aquamarine;/*Couleur à changer en fonction charte graphique*/
-    border-color:aquamarine; /*Couleur à changer en fonction charte graphique*/
+.flex-none :hover {
+    background-color: aquamarine;
+    /*Couleur à changer en fonction charte graphique*/
+    border-color: aquamarine;
+    /*Couleur à changer en fonction charte graphique*/
 }
 
 .btn-menu {
-    width:30px;
+    width: 30px;
     height: 30px;
 }
 
@@ -30,30 +30,27 @@
     background-image: url("/asset/image/testAccueil.jpg");
 }
 
-.card-about{
-    display:flex;
+.card-about {
+    display: flex;
     flex-direction: column;
-    align-items:center;
-    padding:5px;
+    align-items: center;
+    padding: 5px;
 }
 
 
-        /*Style MOBILE*/
-@media screen and (min-width:320px){
+/*Style MOBILE*/
+@media screen and (min-width:320px) {
     .logo {
-    max-width: 25%;
+        width:50%;
     }
 
 }
 
 /*Style LAPTOP Medium*/
-
-
+@media screen and (min-width:768px) {
+    .logo {
+        width: 25%;
+    }
+}
 
 /*Style LAPTOP Large*/
-
-
-
-
-
-
