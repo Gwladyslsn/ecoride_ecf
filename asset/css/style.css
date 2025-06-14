@@ -21,6 +21,9 @@ img {
     height: 30px;
 }
 
+.bg-image {
+    background-image: url("/asset/image/testAccueil.jpg");
+}
 
 
         /*Style MOBILE*/

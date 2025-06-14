@@ -2,9 +2,7 @@
 
 require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
 
-<div
-    class="hero min-h-screen"
-    style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);">
+<div class="hero w-auto min-h-dvh bg-image">
     <div class="hero-overlay"></div>
     <div class="hero-content text-neutral-content text-center">
         <div class="max-w-md">
