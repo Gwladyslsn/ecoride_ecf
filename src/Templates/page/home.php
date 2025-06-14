@@ -1,6 +1,6 @@
 <?php
 
-require_once _ROOTPATH_ . '/Templates/header.php'; ?>
+require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
 
 <div
     class="hero min-h-screen"
@@ -21,4 +21,4 @@ require_once _ROOTPATH_ . '/Templates/header.php'; ?>
 
 
 <?php
-require_once _ROOTPATH_. '/Templates/footer.php'; ?>
+require_once _ROOTPATH_. '/src/Templates/footer.php'; ?>

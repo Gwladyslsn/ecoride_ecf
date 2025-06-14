@@ -31,7 +31,7 @@ class Controller
 
     protected function render(string $path, array $params = []): void
     {
-        $filePath = _ROOTPATH_.'/Templates/'.$path.'.php';
+        $filePath = _ROOTPATH_ . '/src/Templates' . $path . '.php';
 
         try {
             if (!file_exists($filePath)) {
@@ -41,9 +41,9 @@ class Controller
                 require_once $filePath;
             }
         } catch (\Exception $e) {
-            $this->render('/errors/default', [
-                'error' => $e->getMessage()
-            ]);
+            echo "<h1>Erreur de rendu</h1>";
+            echo "<p>" . htmlspecialchars($e->getMessage()) . "</p>";
+            exit;
         }
     }
 }
