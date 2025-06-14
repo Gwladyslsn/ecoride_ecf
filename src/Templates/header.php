@@ -17,7 +17,7 @@
         <div class="flex items-center">
             <div class="justify-around">
                 <a href="http://localhost:8000/?controller=home"> <!-- A MODIFIER -->
-                    <img src="../asset/image/logoEcoride.png" alt="Logo Ecoride" class="rounded-full">
+                    <img src="../asset/image/logoEcoride.png" alt="Logo Ecoride" class="rounded-full logo">
                 </a>
             </div>
             <div class="flex-none">

@@ -1,9 +1,14 @@
-        /*par defaut*/
-* {
-    scrollbar-color:green/*Couleur à changer en fonction charte graphique*/
-}
 
-img {
+/*Reset du user agent*/
+*{
+    text-decoration:none;
+    box-sizing:border-box; /*Pour que le contenu ne depasse pas le contenant*/
+    list-style: none;
+} 
+
+/*GENERAL*/
+
+.logo {
     min-width: 25%;
 }
 
@@ -25,10 +30,17 @@ img {
     background-image: url("/asset/image/testAccueil.jpg");
 }
 
+.card-about{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    padding:5px;
+}
+
 
         /*Style MOBILE*/
 @media screen and (min-width:320px){
-    img {
+    .logo {
     max-width: 25%;
     }
 
