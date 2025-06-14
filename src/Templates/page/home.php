@@ -70,7 +70,7 @@ require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
                     <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="asset\image\strasbourg.webp">
                     <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
                         <h1 class="title-font text-lg font-medium text-green-500 mb-3">Strasbourg</h1>
-                        <p class="leading-relaxed">Un souffle de tradition et de charme alsacien au fil des canaux.<br><br></p>
+                        <p class="leading-relaxed">Un souffle de tradition et de charme alsacien au fil des canaux.<br></p>
                     </div>
                 </div>
             </div>
