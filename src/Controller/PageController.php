@@ -12,6 +12,9 @@ class PageController extends Controller
                     case 'home':
                         $this->home();
                         break;
+                    case 'register':
+                        $this->register();
+                        break;
                     default:
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
                 }
@@ -29,4 +32,11 @@ class PageController extends Controller
     {
         $this->render('/page/home', []);
     }
+
+    protected function register()
+    {
+        $this->render('/page/register', []);
+    }
 }
+
+

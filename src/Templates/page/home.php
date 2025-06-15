@@ -15,7 +15,7 @@ require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
                         🤝 Rencontrez des personnes qui partagent vos valeurs<br>
             </p>
             <button class="btn btn-primary">
-                <a href="../src/Templates/page/signin.php" target="_blank" rel="noopener noreferrer">Nous rejoindre</a>
+                <a href="http://localhost:8000/?controller=page&action=register" target="_blank" rel="noopener noreferrer">Nous rejoindre</a>
             </button>
         </div>
     </div>
