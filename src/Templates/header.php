@@ -31,7 +31,7 @@
                     <li>
                         <a href="" class="text-lg">Historique</a>
                     </li>
-                    <li><a href="" class="text-lg">Contact</a></li>
+                    <li><a href="http://localhost:8000/?controller=page&action=contact" class="text-lg">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -43,7 +43,7 @@
                     <li>
                         <a href="" class="text-lg">Historique</a>
                     </li>
-                    <li><a href="" class="text-lg">Contact</a></li>
+                    <li><a href="http://localhost:8000/?controller=page&action=contact" class="text-lg">Contact</a></li>
             </ul>
         </div>
         <div class="navbar-end">

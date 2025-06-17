@@ -10,7 +10,22 @@ const routes = [
     '/register' => [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'register'
-	]
+	],
+
+	'/contact' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'contact'
+	],
+
+	'/about' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'about'
+	],
+
+	'/mentions' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'mentions'
+	],
 ];
 
 ?>
