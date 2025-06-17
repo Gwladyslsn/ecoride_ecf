@@ -15,7 +15,7 @@
 
     <div class="navbar bg-base-100 shadow-sm">
         <div class="navbar-start">
-            <a href="http://localhost:8000/?controller=page&action=home"> <!-- A MODIFIER -->
+            <a href="/asset/Templates/page/home.php">
                 <img src="/asset/image/logoEcoride.png" alt="Logo Ecoride" class="rounded-full logo">
             </a>
             <div class="dropdown">
@@ -26,27 +26,27 @@
                     tabindex="0"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                     <li>
-                        <a>Covoiturages</a>
+                        <a href="" class="text-lg">Covoiturages</a>
                     </li>
                     <li>
-                        <a>Historique</a>
+                        <a href="" class="text-lg">Historique</a>
                     </li>
-                    <li><a>Contact</a></li>
+                    <li><a href="" class="text-lg">Contact</a></li>
                 </ul>
             </div>
         </div>
         <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1">
+            <ul class="menu menu-horizontal px-1 justify-around">
                 <li>
-                        <a>Covoiturages</a>
+                        <a href="" class="text-lg">Covoiturages</a>
                     </li>
                     <li>
-                        <a>Historique</a>
+                        <a href="" class="text-lg">Historique</a>
                     </li>
-                    <li><a>Contact</a></li>
+                    <li><a href="" class="text-lg">Contact</a></li>
             </ul>
         </div>
         <div class="navbar-end">
-            <a class="btn" href="/asset/Templates/page/register.php">Connexion</a>
+            <a class="btn" href="http://localhost:8000/?controller=page&action=register">Connexion</a>
         </div>
     </div>

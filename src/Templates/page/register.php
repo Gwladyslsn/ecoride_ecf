@@ -4,10 +4,10 @@ require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
 
 
 
-<section class="text-gray-600 body-font pt-20 flex justify-center">
+<section class="text-gray-600 body-font pt-20 flex justify-center sectionLog">
     
-    <div class="container">
-        <div class="lg:w-4/6 md:w-1/2 bg-gray-100 rounded-lg p-10 flex flex-col w-full mt-10 md:mt-0">
+    <div class="container containerLog">
+        <div class="lg:w-5/6 md:w-2/2 bg-gray-100 rounded-lg p-10 flex flex-col mt-10 md:mt-0">
             <h2 class="text-gray-900 text-lg font-medium title-font text-center mb-5">Connexion</h2>
             <div class="relative mb-4">
                 <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
@@ -25,8 +25,8 @@ require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
     <div class="divider divider-horizontal">OU</div>
 
     
-    <div class="container">
-        <div class="lg:w-4/6 md:w-1/2 bg-gray-100 rounded-lg p-10 flex flex-col w-full mt-10 md:mt-0">
+    <div class="container containerLog">
+        <div class="lg:w-5/6 md:w-2/2  bg-gray-100 rounded-lg p-10 flex flex-col mt-10 md:mt-0">
             <h2 class="text-gray-900 text-lg font-medium title-font text-center mb-5">Inscription</h2>
             <div class="relative mb-4">
                 <label for="full-name" class="leading-7 text-sm text-gray-600">Prénom</label>
