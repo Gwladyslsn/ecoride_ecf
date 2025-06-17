@@ -31,7 +31,7 @@ require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
         <div class="flex flex-wrap -m-4">
             <div class="lg:w-1/3 sm:w-1/2 md:w-1/2 p-4">
                 <div class="flex relative">
-                    <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="asset\image\paris.webp">
+                    <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="/asset/image/paris.webp">
                     <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
                         <h1 class="title-font text-lg font-medium text-green-500 mb-3">Paris</h1>
                         <p class="leading-relaxed">Une balade romantique à chaque coin de rue, entre monuments iconiques et terrasses ensoleillées</p>
