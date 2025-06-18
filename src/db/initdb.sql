@@ -107,5 +107,7 @@ CREATE TABLE Avoir (
     FOREIGN KEY (id_preferences) REFERENCES user_preferences(id_preferences)
 );
 
-SELECT * FROM traveler
+SELECT * FROM traveler;
+
+ALTER TABLE traveler RENAME TO `user`;
 
