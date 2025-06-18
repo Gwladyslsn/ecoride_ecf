@@ -1,6 +1,11 @@
 <?php
 
-require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
+require_once _ROOTPATH_ . '/src/Templates/header.php'; 
+require_once _ROOTPATH_ . '/src/Entity/pdo.php';
+
+//var_dump($pdo);
+
+?>
 
 
 
