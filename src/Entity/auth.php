@@ -22,3 +22,15 @@ function ifNotLog(string $redirectTo = 'http://localhost:8000/?controller=page&a
     }
 };
 
+function logout(string $redirectTo = 'http://localhost:8000/?controller=page&action=home'){
+    session_unset();
+    session_destroy();
+    header("Location: $redirectTo");
+    exit();
+}
+
+
+
+                
+
+

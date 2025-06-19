@@ -1,3 +1,15 @@
+<?php
+require_once _ROOTPATH_ . '/src/Entity/auth.php';
+
+/*if (isset($_SESSION['user'])): ?>
+    <a href="http://localhost:8000/?controller=page&action=logout" class="btn">Déconnexion</a>
+<?php else: ?>
+    <a href="?controller=page&action=register" class="btn">Connexion</a>
+<?php endif; ?>*/
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -47,6 +59,10 @@
             </ul>
         </div>
         <div class="navbar-end">
-            <a class="btn" href="http://localhost:8000/?controller=page&action=register">Connexion</a>
+            <?php  if (isset($_SESSION['user'])): ?>
+                <a href="http://localhost:8000/?controller=page&action=logout" class="btn">Déconnexion</a>
+            <?php else: ?>
+                <a href="?controller=page&action=register" class="btn">Connexion</a>
+            <?php endif; ?>
         </div>
     </div>

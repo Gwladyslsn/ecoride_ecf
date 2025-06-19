@@ -27,6 +27,9 @@ class PageController extends Controller
                     case 'dashboardUser':
                         $this->dashboardUser();
                         break;
+                    case 'logout':
+                        $this->logout();
+                        break;
                     default:
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
                 }
@@ -68,6 +71,11 @@ class PageController extends Controller
     protected function dashboardUser()
     {
         $this->render('/page/dashboardUser', []);
+    }
+
+    protected function logout()
+    {
+        $this->render('/logout', []);
     }
 }
 
