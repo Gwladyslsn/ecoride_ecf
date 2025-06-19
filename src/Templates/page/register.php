@@ -91,10 +91,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="divider divider-horizontal">OU</div>
 
 
-    <form method="post" class="container containerLog form_sign">
+    <form method="post" id="form_sign" class="container containerLog form_sign">
         <input type="hidden" name="form_type" value="sign">
         <div class="lg:w-5/6 md:w-2/2  bg-gray-100 rounded-lg p-10 flex flex-col mt-10 md:mt-0">
             <h2 class="text-gray-900 text-lg font-medium title-font text-center mb-5">Inscription</h2>
+            <div id="feedbackSign"></div>
             <div class="relative mb-4">
                 <label for="name_user" class="leading-7 text-sm text-gray-600">Prénom</label>
                 <input type="text" id="name_user_sign" name="name_user" class="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
@@ -111,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <label for="password_user" class="leading-7 text-sm text-gray-600">Mot de passe</label>
                 <input type="password" id="password_sign" name="password_user" class="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
-            <button class="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">S'inscrire</button>
+            <button id="btn_sign" class="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">S'inscrire</button>
         </div>
     </form>
 </section>
