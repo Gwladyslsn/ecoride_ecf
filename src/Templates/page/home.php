@@ -1,6 +1,8 @@
 <?php
 
-require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
+require_once _ROOTPATH_ . '/src/Templates/header.php'; 
+require_once _ROOTPATH_ . '/src/Entity/auth.php';?>
+
 
 <div class="hero w-auto min-h-dvh bg-image">
     <div class="hero-overlay"></div>
@@ -15,7 +17,11 @@ require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
                         🤝 Rencontrez des personnes qui partagent vos valeurs<br>
             </p>
             <button class="btn btn-primary">
-                <a href="http://localhost:8000/?controller=page&action=register" rel="noopener noreferrer">Nous rejoindre</a>
+                <?php  if (isset($_SESSION['user'])): ?>
+                        <a href="?controller=page&action=about">A propos</a>
+                    <?php else: ?>
+                        <a href="http://localhost:8000/?controller=page&action=register" rel="noopener noreferrer">Nous rejoindre</a>
+                    <?php endif; ?>
             </button>
         </div>
     </div>
@@ -43,7 +49,7 @@ require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
                     <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="/asset/image/lille.webp">
                     <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
                         <h1 class="title-font text-lg font-medium text-green-500 mb-3">Lille</h1>
-                        <p class="leading-relaxed">Un concentré de bonne humeur, de culture et d’authenticité dans le Nord au grand cœur.</p>
+                        <p class="leading-relaxed">Un concentré de bonne humeur, de culture et d’authenticité dans le Nord au grand cœur.<br></p>
                     </div>
                 </div>
             </div>

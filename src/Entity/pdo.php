@@ -1,6 +1,6 @@
 <?php 
 
-#Connexion à la base de données
+//Connexion à la base de données
 
 try
 {

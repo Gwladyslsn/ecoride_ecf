@@ -57,4 +57,5 @@ function verifUserExists($pdo, $email_user, $password) {
     }
 }
 
+/* Utilisation de requete preparé + de parametre nommé pour eviter les injections SQL */
 

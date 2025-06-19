@@ -36,6 +36,11 @@ const routes = [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'logout'
 	],
+
+	'/history' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'history'
+	],
 ];
 
 

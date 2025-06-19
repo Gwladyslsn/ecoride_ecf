@@ -30,6 +30,9 @@ class PageController extends Controller
                     case 'logout':
                         $this->logout();
                         break;
+                    case 'history':
+                        $this->history();
+                        break;
                     default:
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
                 }
@@ -76,6 +79,11 @@ class PageController extends Controller
     protected function logout()
     {
         $this->render('/logout', []);
+    }
+
+    protected function history()
+    {
+        $this->render('/page/history', []);
     }
 }
 

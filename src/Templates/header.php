@@ -34,7 +34,11 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                         <a href="" class="text-lg">Covoiturages</a>
                     </li>
                     <li>
-                        <a href="" class="text-lg">Historique</a>
+                        <?php  if (isset($_SESSION['user'])): ?>
+                            <a href="http://localhost:8000/?controller=page&action=history" class="text-lg">Historique</a>
+                        <?php else: ?>
+                            <a href="?controller=page&action=about" class="text-lg">A propos</a>
+                        <?php endif; ?>
                     </li>
                     <li><a href="http://localhost:8000/?controller=page&action=contact" class="text-lg">Contact</a></li>
                 </ul>
@@ -46,7 +50,11 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                         <a href="" class="text-lg">Covoiturages</a>
                     </li>
                     <li>
-                        <a href="" class="text-lg">Historique</a>
+                        <?php  if (isset($_SESSION['user'])): ?>
+                            <a href="http://localhost:8000/?controller=page&action=history" class="text-lg">Historique</a>
+                        <?php else: ?>
+                            <a href="?controller=page&action=about" class="text-lg">A propos</a>
+                        <?php endif; ?>
                     </li>
                     <li><a href="http://localhost:8000/?controller=page&action=contact" class="text-lg">Contact</a></li>
             </ul>
