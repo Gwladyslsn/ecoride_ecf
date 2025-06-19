@@ -1,10 +1,11 @@
 <?php
 
-require_once _ROOTPATH_ . '/src/Templates/header.php';
+require_once _ROOTPATH_ . '/src/Entity/auth.php';
+
+
 require_once _ROOTPATH_ . '/src/Entity/pdo.php';
 require_once _ROOTPATH_ . '/src/Entity/users.php';
 
-/* INSCRIPTION */
 
 $errors = [];
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -19,8 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (empty($errors)) {
             if (verifUserExists($pdo,  $email_user, $password_user)) {
                 $_SESSION['user'] = $email_user;
-                echo "Connexion réussie !";
-                // Redirection  : header("Location: dashboard.php");
+                ifLog();
             } else {
                 echo "Identifiants et/ou mot de passe incorrect(s).";
             }
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 };
 
-
+require_once _ROOTPATH_ . '/src/Templates/header.php';
 ?>
 
 

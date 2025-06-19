@@ -56,3 +56,5 @@ function verifUserExists($pdo, $email_user, $password) {
         return false;
     }
 }
+
+

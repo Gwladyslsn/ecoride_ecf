@@ -24,6 +24,9 @@ class PageController extends Controller
                     case 'mentions':
                         $this->mentions();
                         break;
+                    case 'dashboardUser':
+                        $this->dashboardUser();
+                        break;
                     default:
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
                 }

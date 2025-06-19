@@ -1,6 +1,7 @@
 <?php
 
-require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
+require_once _ROOTPATH_ . '/src/Templates/header.php';
+?>
 
 <h1>Espace user</h1>
 

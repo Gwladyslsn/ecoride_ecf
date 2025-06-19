@@ -18,7 +18,7 @@ class Controller
                         throw new \Exception("Le controller n'existe pas");
                 }
             } else {
-                // Charger la page d'accueil
+                // Charger la page d'accueil par defaut
                 $pageController = new PageController();
                 $pageController->home();
             }

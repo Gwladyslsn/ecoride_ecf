@@ -30,7 +30,7 @@ const routes = [
 	'/dashboardUser' => [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'dashboardUser'
-	],
+	]
 ];
 
-?>
+
