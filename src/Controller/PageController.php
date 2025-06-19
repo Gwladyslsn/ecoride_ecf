@@ -61,6 +61,11 @@ class PageController extends Controller
     {
         $this->render('/page/mentions', []);
     }
+
+    protected function dashboardUser()
+    {
+        $this->render('/page/dashboardUser', []);
+    }
 }
 
 

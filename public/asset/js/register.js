@@ -46,14 +46,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //Afficher message si erreur
         if (Object.keys(errors).length > 0) {
-            let errorHtml = '<div class="alert alert-danger"><ul>';
+            feedbackLogin.innerHTML = '';
+
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-danger';
+
+            const ul = document.createElement('ul');
+
             for (let key in errors) {
-                errorHtml += `<li>${escapeHtml(errors[key])}</li>`;
+                const li = document.createElement('li');
+                li.textContent = errors[key];
+                ul.appendChild(li);
             }
-            errorHtml += '</ul></div>';
-            feedbackLogin.innerHTML = errorHtml;
+
+            alertDiv.appendChild(ul);
+            feedbackLogin.appendChild(alertDiv);
+
             console.log("Erreurs de validation côté client :", errors);
-        } else{
+        } else {
             formLog.submit();
         }
 
@@ -90,37 +100,52 @@ document.addEventListener("DOMContentLoaded", function () {
         //Vérification des champs
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (emailSign === "") {
-            errors['emailSign'] = "Le champ Mail ne doit pas etre vide !"
+            errors['emailSign'] = "Le Mail ne doit pas etre vide !"
         } else if (!emailRegex.test(emailSign)) {
             errors['emailSign'] = "Le format de l'adresse mail est invalide !"
         }
 
         if (nameSign === "") {
-            errors['nameSign'] = "Le champ Prénom ne doit pas etre vide"
+            errors['nameSign'] = "Le Prénom ne doit pas etre vide"
         }
 
         if (lastnameSign === "") {
-            errors['lastnameSign'] = "Le champ Nom ne doit pas etre vide"
+            errors['lastnameSign'] = "Le Nom ne doit pas etre vide"
         }
 
         if (passwordSign === "") {
-            errors['passwordSign'] = "Le champ Mot de passe ne doit pas etre vide"
+            errors['passwordSign'] = "Le Mot de passe ne doit pas etre vide"
+        }
+        if (passwordSign.length < 9) {
+            errors['passwordSign'] = "Le Mot de passe doit contenir au moins 9 caractères"
         }
 
-        
+
 
         //Afficher message si erreur
-        if (Object.keys(errors).length > 0) {
-            let errorHtml = '<div class="alert alert-danger"><ul>';
+    if (Object.keys(errors).length > 0) {
+
+            feedbackLogin.innerHTML = '';
+
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-danger';
+
+            const ul = document.createElement('ul');
+
+
             for (let key in errors) {
-                errorHtml += `<li>${escapeHtml(errors[key])}</li>`;
+                const li = document.createElement('li');
+                li.textContent = errors[key]; 
+                ul.appendChild(li);
             }
-            errorHtml += '</ul></div>';
-            feedbackSign.innerHTML = errorHtml;
+
+            alertDiv.appendChild(ul);
+            feedbackSign.appendChild(alertDiv);
+
             console.log("Erreurs de validation côté client :", errors);
-        } else{
+        } else {
             formSign.submit();
-        }
+    }
 
     })
 

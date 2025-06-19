@@ -26,6 +26,11 @@ const routes = [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'mentions'
 	],
+
+	'/dashboardUser' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'dashboardUser'
+	],
 ];
 
 ?>
