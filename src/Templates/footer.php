@@ -9,7 +9,9 @@
         <p>Copyright © 2025 - All right reserved by Eco'ride - <a href="http://localhost:8000/?controller=page&action=mentions" class="link link-hover">Mentions légales</a></p>
     </aside>
 </footer>
-
+<?php if (isset($page_script)): ?>
+        <script src="<?php echo $page_script; ?>"></script>
+    <?php endif; ?>
 </body>
 
 </html>
