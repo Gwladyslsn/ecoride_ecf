@@ -9,6 +9,10 @@
     padding: 5px;
 }
 
+.container{
+    background-color: var(--bg-main);
+}
+
 /*Style MOBILE*/
 @media screen and (min-width:320px) and (max-width:767px) {}
 

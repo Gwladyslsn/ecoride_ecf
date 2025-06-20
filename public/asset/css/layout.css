@@ -2,6 +2,14 @@
 * {
     text-decoration: none;
     box-sizing: border-box;
-    /*Pour que le contenu ne depasse pas le contenant*/
     list-style: none;
+}
+
+
+body{
+    background-color: var(--bg-main);
+}
+
+footer{
+    background-color: var(--bg-main);
 }

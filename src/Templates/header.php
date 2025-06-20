@@ -18,29 +18,36 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
 
 <body>
 
-    <div class="navbar bg-base-100 shadow-sm">
+    <div class="navbar">
         <div class="navbar-start">
             <a href="/asset/Templates/page/home.php">
                 <img src="/asset/image/logoEcoride.png" alt="Logo Ecoride" class="rounded-full logo">
             </a>
             <div class="dropdown">
-                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <div tabindex="0" role="button" class="btn lg:hidden btn-header">
                     Menu
                 </div>
                 <ul
                     tabindex="0"
-                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                    class="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow">
                     <li>
-                        <a href="" class="text-lg">Covoiturages</a>
+                        <a href="" class="text-lg ">Covoiturages</a>
                     </li>
                     <li>
                         <?php  if (isset($_SESSION['user'])): ?>
-                            <a href="http://localhost:8000/?controller=page&action=history" class="text-lg">Historique</a>
+                            <a href="http://localhost:8000/?controller=page&action=history" class="text-lg ">Historique</a>
                         <?php else: ?>
-                            <a href="?controller=page&action=about" class="text-lg">A propos</a>
+                            <a href="?controller=page&action=about" class="text-lg ">A propos</a>
                         <?php endif; ?>
                     </li>
-                    <li><a href="http://localhost:8000/?controller=page&action=contact" class="text-lg">Contact</a></li>
+                    <li>
+                        <?php  if (isset($_SESSION['user'])): ?>
+                            <a href="http://localhost:8000/?controller=page&action=dashboardUser" class="text-lg ">Mon espace</a>
+                        <?php else: ?>
+                            <a href="?controller=page&action=about" class="text-lg hidden ">A propos</a>
+                        <?php endif; ?>
+                    </li>
+                    <li><a href="http://localhost:8000/?controller=page&action=contact" class="text-lg ">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -51,19 +58,26 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                     </li>
                     <li>
                         <?php  if (isset($_SESSION['user'])): ?>
-                            <a href="http://localhost:8000/?controller=page&action=history" class="text-lg">Historique</a>
+                            <a href="http://localhost:8000/?controller=page&action=history" class="text-lg ">Historique</a>
                         <?php else: ?>
-                            <a href="?controller=page&action=about" class="text-lg">A propos</a>
+                            <a href="?controller=page&action=about" class="text-lg ">A propos</a>
                         <?php endif; ?>
                     </li>
-                    <li><a href="http://localhost:8000/?controller=page&action=contact" class="text-lg">Contact</a></li>
+                    <li>
+                        <?php  if (isset($_SESSION['user'])): ?>
+                            <a href="http://localhost:8000/?controller=page&action=dashboardUser" class="text-lg ">Mon espace</a>
+                        <?php else: ?>
+                            <a href="?controller=page&action=about" class="text-lg hidden ">A propos</a>
+                        <?php endif; ?>
+                    </li>
+                    <li><a href="http://localhost:8000/?controller=page&action=contact" class="text-lg ">Contact</a></li>
             </ul>
         </div>
         <div class="navbar-end">
             <?php  if (isset($_SESSION['user'])): ?>
-                <a href="http://localhost:8000/?controller=page&action=logout" class="btn">Déconnexion</a>
+                <a href="http://localhost:8000/?controller=page&action=logout" class="btn btn-header">Déconnexion</a>
             <?php else: ?>
-                <a href="?controller=page&action=register" class="btn">Connexion</a>
+                <a href="?controller=page&action=register" class="btn btn-header">Connexion</a>
             <?php endif; ?>
         </div>
     </div>

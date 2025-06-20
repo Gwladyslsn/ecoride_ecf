@@ -1,17 +1,24 @@
-.flex-none {
-    margin-right: 5%;
+.navbar{
+    background-color: var(--bg-main);
 }
 
-.flex-none :hover {
-    background-color: aquamarine;
-    /*Couleur à changer en fonction charte graphique*/
-    border-color: aquamarine;
-    /*Couleur à changer en fonction charte graphique*/
-}
 
 .btn-menu {
     width: 30px;
     height: 30px;
+}
+
+.menu li{
+    color: var(--text-white);
+}
+
+.menu :hover {
+    background-color: var(--bg-section);
+    color: var(--text-black);
+}
+
+.btn-header{
+    background-color: var(--bg-section);
 }
 
 
@@ -22,6 +29,12 @@
     .logo {
         width: 50%;
     }
+
+    .menu li{
+    color: var(--text-black);
+    background-color: var(--bg-section);
+}
+
 
 }
 

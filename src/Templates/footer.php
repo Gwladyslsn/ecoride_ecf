@@ -1,4 +1,4 @@
-<footer class="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10 mt-50">
+<footer class="footer footer-horizontal footer-center text-base-content rounded p-10 mt-50">
     <nav class="grid grid-flow-col gap-4">
         <a href="http://localhost:8000/?controller=page&action=about" class="link link-hover">A propos</a>
         <a href="http://localhost:8000/?controller=page&action=contact" class="link link-hover">Contact</a>
