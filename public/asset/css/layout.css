@@ -8,8 +8,10 @@
 
 body{
     background-color: var(--bg-main);
+    color: var(--text-white);
 }
 
 footer{
     background-color: var(--bg-main);
+    color: var(--text-white);
 }

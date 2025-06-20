@@ -9,8 +9,21 @@
     padding: 5px;
 }
 
+.btn-home{
+    background-color: var(--secondary-color);
+}
+
 .container{
     background-color: var(--bg-main);
+}
+
+input{
+    border-color: var(--secondary-color);
+}
+
+.btn-search{
+    background-color: var(--secondary-color);
+    color: var(--text-black);
 }
 
 /*Style MOBILE*/
