@@ -7,16 +7,16 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';?>
 <div class="hero w-auto min-h-dvh bg-image">
     <div class="hero-overlay"></div>
     <div class="hero-content text-neutral-content text-center">
-        <div class="max-w-lg">
+        <div class="max-w-lg text-home">
             <h1 class="mb-5 text-5xl font-bold">Avec Eco'ride, voyagez proprement</h1>
-            <p class="mb-5 text-lg">
+            <p class="text-xl mt-8">
                 Chez Ecoride, on croit qu’il est possible de se déplacer tout en respectant la planète. Notre plateforme de covoiturage met en relation conducteurs et passagers pour partager un trajet, réduire leur empreinte carbone et faire des économies, tout simplement.<br>
                         Que vous soyez conducteur avec des places disponibles ou passager à la recherche d’un trajet pratique et économique, Ecoride vous accompagne à chaque étape.<br><br>
                         🔍 Recherchez un trajet en quelques clics<br>
                         🚗 Réservez votre place grâce à un système de crédits simple et sécurisé<br>
                         🤝 Rencontrez des personnes qui partagent vos valeurs<br>
             </p>
-            <button class="btn btn-home">
+            <button class="btn btn-home mt-5">
                 <?php  if (isset($_SESSION['user'])): ?>
                         <a href="?controller=page&action=about">A propos</a>
                     <?php else: ?>
@@ -37,8 +37,8 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';?>
         <div class="flex flex-wrap -m-4">
             <div class="lg:w-1/3 sm:w-1/2 md:w-1/2 p-4">
                 <div class="flex relative">
-                    <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="/asset/image/paris.webp">
-                    <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 opacity-0 hover:opacity-100 card-city">
+                    <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-md" src="/asset/image/paris.webp">
+                    <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 opacity-0 hover:opacity-100 card-city rounded-md">
                         <h1 class="title-font text-lg font-medium card-name mb-3">Paris</h1>
                         <p class="leading-relaxed">Une balade romantique à chaque coin de rue, entre monuments iconiques et terrasses ensoleillées</p>
                     </div>
@@ -46,8 +46,8 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';?>
             </div>
             <div class="lg:w-1/3 sm:w-1/2 md:w-1/2 p-4">
                 <div class="flex relative">
-                    <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="/asset/image/lille.webp">
-                    <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 opacity-0 hover:opacity-100 card-city">
+                    <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-md" src="/asset/image/lille.webp">
+                    <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 opacity-0 hover:opacity-100 card-city rounded-md">
                         <h1 class="title-font text-lg font-medium mb-3">Lille</h1>
                         <p class="leading-relaxed">Un concentré de bonne humeur, de culture et d’authenticité dans le Nord au grand cœur.<br></p>
                     </div>
@@ -55,8 +55,8 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';?>
             </div>
             <div class="lg:w-1/3 sm:w-1/2 md:w-1/2 p-4">
                 <div class="flex relative">
-                    <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="/asset/image/lyon.webp">
-                    <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100 card-city">
+                    <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-md" src="/asset/image/lyon.webp">
+                    <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100 card-city rounded-md">
                         <h1 class="title-font text-lg font-medium mb-3">Lyon</h1>
                         <p class="leading-relaxed">Un mélange parfait de gastronomie, patrimoine et douceur de vivre au bord des deux fleuves.</p>
                     </div>
@@ -64,8 +64,8 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';?>
             </div>
             <div class="lg:w-1/3 sm:w-1/2 md:w-1/2 p-4">
                 <div class="flex relative">
-                    <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="/asset/image/nice.webp">
-                    <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 opacity-0 hover:opacity-100 card-city">
+                    <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-md" src="/asset/image/nice.webp">
+                    <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 opacity-0 hover:opacity-100 card-city rounded-md">
                         <h1 class="title-font text-lg font-medium mb-3">Nice</h1>
                         <p class="leading-relaxed">Soleil, mer turquoise et palmiers… l’évasion méditerranéenne par excellence.</p>
                     </div>
@@ -73,8 +73,8 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';?>
             </div>
             <div class="lg:w-1/3 sm:w-1/2 md:w-1/2 p-4">
                 <div class="flex relative">
-                    <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="/asset/image/strasbourg.webp">
-                    <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 opacity-0 hover:opacity-100 card-city">
+                    <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-md" src="/asset/image/strasbourg.webp">
+                    <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 opacity-0 hover:opacity-100 card-city rounded-md">
                         <h1 class="title-font text-lg font-medium mb-3">Strasbourg</h1>
                         <p class="leading-relaxed">Un souffle de tradition et de charme alsacien au fil des canaux.<br></p>
                     </div>
@@ -82,8 +82,8 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';?>
             </div>
             <div class="lg:w-1/3 sm:w-1/2 md:w-1/2 p-4">
                 <div class="flex relative">
-                    <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="/asset/image/toulouse.webp">
-                    <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 opacity-0 hover:opacity-100 card-city">
+                    <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-md" src="/asset/image/toulouse.webp">
+                    <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 opacity-0 hover:opacity-100 card-city rounded-md">
                         <h1 class="title-font text-lg font-medium mb-3">Toulouse</h1>
                         <p class="leading-relaxed">Une ville chaleureuse au charme du Sud, entre briques roses et ambiance conviviale.</p>
                     </div>

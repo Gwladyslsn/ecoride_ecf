@@ -15,6 +15,7 @@
 .menu :hover {
     background-color: var(--bg-section);
     color: var(--text-black);
+    border-radius: 6px;
 }
 
 .btn-header{

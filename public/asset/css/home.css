@@ -2,6 +2,12 @@
     background-image: url("/asset/image/testAccueil.jpg");
 }
 
+.text-home{
+    background-color: rgba(106, 140, 108, 0.3);
+    border-radius: 8px;
+    padding:2em;
+}
+
 .card-about {
     display: flex;
     flex-direction: column;
