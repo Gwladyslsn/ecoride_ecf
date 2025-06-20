@@ -1,0 +1,16 @@
+.bg-image {
+    background-image: url("/asset/image/testAccueil.jpg");
+}
+
+.card-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+/*Style MOBILE*/
+@media screen and (min-width:320px) and (max-width:767px) {}
+
+/*Style LAPTOP Medium*/
+@media screen and (min-width:768px) {}

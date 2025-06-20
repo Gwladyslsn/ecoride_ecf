@@ -1,0 +1,7 @@
+/*Reset du user agent*/
+* {
+    text-decoration: none;
+    box-sizing: border-box;
+    /*Pour que le contenu ne depasse pas le contenant*/
+    list-style: none;
+}

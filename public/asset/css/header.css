@@ -1,0 +1,35 @@
+.flex-none {
+    margin-right: 5%;
+}
+
+.flex-none :hover {
+    background-color: aquamarine;
+    /*Couleur à changer en fonction charte graphique*/
+    border-color: aquamarine;
+    /*Couleur à changer en fonction charte graphique*/
+}
+
+.btn-menu {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+
+/*Style MOBILE*/
+@media screen and (min-width:320px) and (max-width:767px) {
+    .logo {
+        width: 50%;
+    }
+
+}
+
+/*Style LAPTOP Medium*/
+@media screen and (min-width:768px) {
+    .logo {
+        max-width: 20%;
+    }
+}
+
+/*Style LAPTOP Large*/

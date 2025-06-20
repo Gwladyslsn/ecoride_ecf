@@ -1,0 +1,24 @@
+/*Style MOBILE*/
+@media screen and (min-width:320px) and (max-width:767px) {
+    .sectionLog {
+        flex-direction: column;
+    }
+
+    .divider {
+        margin: 0 auto;
+    }
+}
+
+/*Style LAPTOP Medium*/
+@media screen and (min-width:768px) {
+    .sectionLog {
+        flex-direction: row;
+    }
+
+    .containerLog {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2%;
+    }
+}
