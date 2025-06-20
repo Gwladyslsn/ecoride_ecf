@@ -9,6 +9,11 @@
     padding: 5px;
 }
 
+.card-city{
+    background-color: var(--secondary-color);
+    color: var(--text-black);
+}
+
 .btn-home{
     background-color: var(--secondary-color);
 }
