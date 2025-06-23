@@ -1,46 +1,46 @@
 <?php
 
 require_once _ROOTPATH_ . '/src/Templates/header.php';
+require_once _ROOTPATH_ . '/src/Entity/pdo.php';
+require_once _ROOTPATH_ . '/src/Entity/users.php';
+
+
+if (isset($_SESSION['user'])) {
+    $user = getDataUser($pdo, $_SESSION['user']);
+}
 ?>
 
 <div class="max-w-6xl mx-auto">
-        <!-- En-tête de la page -->
-        <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">Mon Espace Utilisateur</h1>
-
-        <!-- Section Photo de Profil et Informations Basiques -->
+        <h1 class="text-3xl font-bold mb-8 text-center">Mon Espace Utilisateur</h1>
         <div class="profile-section flex flex-col md:flex-row items-center md:items-start gap-6">
-            <!-- Photo de profil -->
             <div class="flex-shrink-0">
                 <img src="https://placehold.co/128x128/a78bfa/ffffff?text=Avatar" alt="Photo de profil" class="w-32 h-32 rounded-full object-cover border-4 border-purple-300 shadow-md">
             </div>
-            <!-- Informations de base -->
             <div class="flex-grow text-center md:text-left">
-                <h2 class="text-2xl font-semibold text-gray-900">John Doe</h2>
-                <p class="text-gray-600">Passager / Chauffeur (exemple de statut)</p>
+                <h2 class="text-2xl font-semibold text-gray-900"><?=$user["name_user"] ;?></h2>
+                <p class="text-gray-600">"role""</p>
                 <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors shadow-sm">
                     Modifier le profil
                 </button>
             </div>
         </div>
 
-        <!-- Section Informations Personnelles -->
         <div class="profile-section">
             <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
                 <i class="fas fa-user-circle mr-2 text-blue-500"></i> Mes Informations Personnelles
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
-                <div><span class="font-medium">Nom :</span> <span class="text-gray-900">Doe</span></div>
-                <div><span class="font-medium">Prénom :</span> <span class="text-gray-900">John</span></div>
-                <div><span class="font-medium">Âge :</span> <span class="text-gray-900">30 ans</span></div>
-                <div><span class="font-medium">E-mail :</span> <span class="text-gray-900">john.doe@example.com</span></div>
-                <div><span class="font-medium">Téléphone :</span> <span class="text-gray-900">+33 6 12 34 56 78</span></div>
+                <div><span class="font-medium">Nom :</span> <span class="text-gray-900"><?=$user["lastname_user"] ;?></span></div>
+                <div><span class="font-medium">Prénom :</span> <span class="text-gray-900"><?=$user["name_user"] ;?></span></div>
+                <div><span class="font-medium">Âge :</span> <span class="text-gray-900"><?=$user["dob_user"] ;?></span></div>
+                <div><span class="font-medium">E-mail :</span> <span class="text-gray-900"><?=$user["email_user"] ;?></span></div>
+                <div><span class="font-medium">Téléphone :</span> <span class="text-gray-900"><?=$user["phone_user"] ;?></span></div>
             </div>
             <button class="mt-6 px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors shadow-sm">
                 Modifier mes informations
             </button>
         </div>
 
-        <!-- Section Préférences de Trajet -->
         <div class="profile-section">
             <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
                 <i class="fas fa-sliders-h mr-2 text-green-500"></i> Mes Préférences de Trajet
@@ -80,8 +80,6 @@ require_once _ROOTPATH_ . '/src/Templates/header.php';
             </button>
         </div>
 
-        <!-- Section Véhicule (visible uniquement si l'utilisateur est chauffeur) -->
-        <!-- Vous pouvez contrôler la visibilité de cette section avec JavaScript/votre backend -->
         <div class="profile-section">
             <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
                 <i class="fas fa-car mr-2 text-red-500"></i> Mon Véhicule (si chauffeur)
@@ -97,7 +95,6 @@ require_once _ROOTPATH_ . '/src/Templates/header.php';
             </button>
         </div>
 
-        <!-- Bouton de déconnexion -->
         <div class="text-center mt-8">
             <button class="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors shadow-md">
                 <i class="fas fa-sign-out-alt mr-2"></i> Se déconnecter

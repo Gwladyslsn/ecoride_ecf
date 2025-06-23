@@ -1,7 +1,8 @@
 -- Active: 1748279906913@@127.0.0.1@3307@ecoride
-USE DATABASE ecoride;
+CREATE DATABASE ecoride;
+USE ecoride;
 
-CREATE TABLE traveler (
+CREATE TABLE user (
     id_user INT AUTO_INCREMENT PRIMARY KEY,
     name_user VARCHAR(255),
     lastname_user VARCHAR(255),
@@ -23,6 +24,14 @@ CREATE TABLE role (
     name_role VARCHAR(255)
 );
 
+
+
+INSERT INTO role (name_role) VALUES 
+("chauffeur"),
+("passager"),
+("chauffeur-passager");
+
+
 CREATE TABLE admin (
     id_admin INT AUTO_INCREMENT PRIMARY KEY,
     name_admin VARCHAR(255),
@@ -32,6 +41,8 @@ CREATE TABLE admin (
     id_role INT,
     FOREIGN KEY (id_role) REFERENCES role(id_role)
 );
+
+
 
 CREATE TABLE employee (
     id_employee INT AUTO_INCREMENT PRIMARY KEY,
@@ -44,6 +55,8 @@ CREATE TABLE employee (
     FOREIGN KEY (id_role) REFERENCES role(id_role)
 );
 
+
+
 CREATE TABLE car (
     id_car INT AUTO_INCREMENT PRIMARY KEY,
     brand_car VARCHAR(255),
@@ -54,7 +67,7 @@ CREATE TABLE car (
     licensePlate_car VARCHAR(10),
     firstPlate_car DATE,
     id_user INT,
-    FOREIGN KEY (id_user) REFERENCES traveler(id_user)
+    FOREIGN KEY (id_user) REFERENCES user(id_user)
 );
 
 CREATE TABLE carpooling (
@@ -76,7 +89,7 @@ CREATE TABLE Participer (
     id_user INT,
     PRIMARY KEY (id_carpooling, id_user),
     FOREIGN KEY (id_carpooling) REFERENCES carpooling(id_carpooling),
-    FOREIGN KEY (id_user) REFERENCES traveler(id_user)
+    FOREIGN KEY (id_user) REFERENCES user(id_user)
 );
 
 CREATE TABLE reviews (
@@ -88,7 +101,7 @@ CREATE TABLE reviews (
     id_user INT,
     id_carpooling INT,
     id_employee INT,
-    FOREIGN KEY (id_user) REFERENCES traveler(id_user),
+    FOREIGN KEY (id_user) REFERENCES user(id_user),
     FOREIGN KEY (id_carpooling) REFERENCES carpooling(id_carpooling),
     FOREIGN KEY (id_employee) REFERENCES employee(id_employee)
 );
@@ -103,11 +116,10 @@ CREATE TABLE Avoir (
     id_user INT,
     id_preferences INT,
     PRIMARY KEY (id_user, id_preferences),
-    FOREIGN KEY (id_user) REFERENCES traveler(id_user),
+    FOREIGN KEY (id_user) REFERENCES user(id_user),
     FOREIGN KEY (id_preferences) REFERENCES user_preferences(id_preferences)
 );
 
-SELECT * FROM traveler;
+SELECT * FROM user;
 
-ALTER TABLE traveler RENAME TO `user`;
 

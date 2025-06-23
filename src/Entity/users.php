@@ -1,9 +1,9 @@
 <?php 
 
 
-function addUser(PDO $pdo,string $name_user, string $lastname_user, string $email_user, string $password_user):bool
+function addUser(PDO $pdo,string $name_user, string $lastname_user, string $email_user, string $password_user, string $id_role):bool
 {
-    $query = $pdo->prepare("INSERT INTO `user`(`name_user`, `lastname_user`, `email_user`, `password_user`) VALUES (:name_user, :lastname_user, :email_user, :password_user)");
+    $query = $pdo->prepare("INSERT INTO `user`(`name_user`, `lastname_user`, `email_user`, `password_user`, `id_role`) VALUES (:name_user, :lastname_user, :email_user, :password_user, :id_role)");
 
     $password = password_hash($password_user, PASSWORD_DEFAULT);
 
@@ -11,6 +11,7 @@ function addUser(PDO $pdo,string $name_user, string $lastname_user, string $emai
     $query->bindValue(':lastname_user', $lastname_user);
     $query->bindValue(':email_user', $email_user);
     $query->bindValue(':password_user', $password);
+    $query->bindValue(':id_role', $id_role);
 
     return $query->execute();
 }
@@ -30,6 +31,9 @@ function verifyUserInput(array $user):array
     }
     if($user["password_user"] === ""){
             $errors["password_user"] = "Le champ Mot de passe ne doit pas etre vide";
+    }
+    if($user["id_role"] === ""){
+            $errors["id_role"] = "Le champ Rôle ne doit pas etre vide";
     }
     if(count($errors)){
         return $errors;
@@ -57,5 +61,12 @@ function verifUserExists($pdo, $email_user, $password) {
     }
 }
 
+function getDataUser(PDO $pdo, string $email_user){
+    $sql = "SELECT * FROM user WHERE email_user = :email_user";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['email_user' => $email_user]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $user ?: null;
+}
 /* Utilisation de requete preparé + de parametre nommé pour eviter les injections SQL */
 
