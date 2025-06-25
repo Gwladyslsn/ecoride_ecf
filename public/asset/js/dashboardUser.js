@@ -55,6 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.classList.remove('hidden');
     })
 
+    fileInput.addEventListener('change', () => {
+      //test
+    });
+
 
 
 });

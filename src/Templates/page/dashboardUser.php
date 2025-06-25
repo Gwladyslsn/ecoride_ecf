@@ -17,8 +17,14 @@ if (isset($_SESSION['user'])) {
     $id_user = $user["id_user"];
     $car = getDataCar($pdo, $id_user);
 
-    //affichage voiture    
+    //affichage voiture   
+
+    $avatarPath = !empty($user['avatar_user'])
+        ? '/asset/uploads/avatars/' . htmlspecialchars($user['avatar_user'])
+        : 'https://placehold.co/128x128/a78bfa/ffffff?text=Avatar';
 }
+
+
 
 ?>
 
@@ -26,15 +32,17 @@ if (isset($_SESSION['user'])) {
     <h1 class="text-3xl font-bold mb-8 text-center">Mon Espace Utilisateur</h1>
     <div class="profile-section flex flex-col md:flex-row items-center md:items-start gap-6">
         <div class="flex-shrink-0">
-            <img id="profil-image" src="https://placehold.co/128x128/a78bfa/ffffff?text=Avatar" alt="Photo de profil" class="w-32 h-32 rounded-full object-cover border-4 border-purple-300 shadow-md">
-            
+            <img
+                src="<?= $avatarPath ?>"
+                alt="Photo de profil"
+                class="w-32 h-32 rounded-full object-cover border-4 border-purple-300 shadow-md">
         </div>
         <div class="flex-grow text-center md:text-left">
             <h2 class="text-2xl font-semibold text-gray-900"><?= $user["name_user"]; ?></h2>
             <p class="text-gray-600"><?= $role['name_role']; ?></p>
             <button id="edit-photo" class="btn rounded-md">Modifier ma photo</button>
-            <form action="/updateUser.php" method="POST" enctype="multipart/form-data" class="mt-4">
-                <input id="file-input" type="file" name="avatar" accept="image/*" class="mb-2 hidden">
+            <form action="http://localhost:8000/?controller=page&action=updateUser" method="POST" enctype="multipart/form-data" class="mt-4">
+                <input id="file-input" type="file" name="avatar" accept="image/*" class="mb-2 hidden text-gray-600">
                 <button id="submit-btn" type="submit" name="upload_avatar" class="hidden px-3 py-1 bg-indigo-600 text-white rounded">
                     Mettre à jour la photo
                 </button>
