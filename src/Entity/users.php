@@ -83,12 +83,12 @@ function getRole(PDO $pdo, int $id_role){
 
 
 
-function getDataCar(PDO $pdo, int $id_user){
+function getDataCar(PDO $pdo, string $id_user){
     $sql = "SELECT * FROM car WHERE id_user= :id_user";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id_user' => $id_user]);
-    $carData = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $carData ?: null;
+    $car = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $car ?: null;
 }
 
 

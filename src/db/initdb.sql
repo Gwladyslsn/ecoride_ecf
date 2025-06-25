@@ -70,6 +70,9 @@ CREATE TABLE car (
     FOREIGN KEY (id_user) REFERENCES user(id_user)
 );
 
+ALTER TABLE car
+MODIFY COLUMN year_car YEAR;
+
 CREATE TABLE carpooling (
     id_carpooling INT AUTO_INCREMENT PRIMARY KEY,
     departure_date DATE,
@@ -128,17 +131,25 @@ VALUES (
     'Peugeot', 
     '208', 
     'Bleu', 
-    '2018-01-01', 
+    '2018', 
     'Essence', 
     'AB123CD', 
     '2018-03-15', 
     1
 );
 
+DELETE FROM car
+WHERE id_car = 1;
+
 SELECT name_role FROM role WHERE id_role= 1;
 
 SELECT * FROM user WHERE id_user = 1;
 
 SELECT * FROM car WHERE id_user= 4;
+
+
+/*test*/
+SELECT * FROM car WHERE id_user = 4;
+SELECT * FROM car c LEFT JOIN user u ON u.id_user = c.id_user WHERE id_car = 1;
 
 
