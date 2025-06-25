@@ -87,36 +87,12 @@ function getDataCar(PDO $pdo, int $id_user){
     $sql = "SELECT * FROM car WHERE id_user= :id_user";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id_user' => $id_user]);
-    $car = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $car ?: null;
+    $carData = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $carData ?: null;
 }
 
-function updateUser($pdo, $name_user, $lastname_user, $email_user, $phone_user, $dob_user, $id_user) {
-    try {
-        $sql = "UPDATE user SET 
-                name_user = :name_user, 
-                lastname_user = :lastname_user, 
-                email_user = :email_user, 
-                phone_user = :phone_user, 
-                dob_user = :dob_user 
-                WHERE id_user = :id_user";
-        
-        $stmt = $pdo->prepare($sql);
-        $result = $stmt->execute([
-            ':name_user' => $name_user,
-            ':lastname_user' => $lastname_user,
-            ':email_user' => $email_user,
-            ':phone_user' => $phone_user,
-            ':dob_user' => $dob_user,
-            ':id_user' => $id_user
-        ]);
-        
-        return $result;
-    } catch (Exception $e) {
-        error_log("Erreur updateUser: " . $e->getMessage());
-        return false;
-    }
-}
+
+
 
 
 /* Utilisation de requete preparé + de parametre nommé pour eviter les injections SQL */

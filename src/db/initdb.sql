@@ -123,6 +123,18 @@ CREATE TABLE Avoir (
 ALTER TABLE user ADD avatar_user VARCHAR(255);
 SELECT * FROM user;
 
+INSERT INTO car (brand_car, model_car, color_car, year_car, energy_car, licensePlate_car, firstPlate_car, id_user) 
+VALUES (
+    'Peugeot', 
+    '208', 
+    'Bleu', 
+    '2018-01-01', 
+    'Essence', 
+    'AB123CD', 
+    '2018-03-15', 
+    1
+);
+
 SELECT name_role FROM role WHERE id_role= 1;
 
 SELECT * FROM user WHERE id_user = 1;

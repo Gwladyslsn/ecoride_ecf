@@ -5,9 +5,15 @@ require_once _ROOTPATH_ . '/src/Entity/pdo.php';
 require_once _ROOTPATH_ . '/src/Entity/users.php';
 
 
+
 //affichage info perso
 if (isset($_SESSION['user'])) {
     $user = getDataUser($pdo, $_SESSION['user']);
+
+    //modif photo
+    $avatarPath = !empty($user['avatar_user'])
+    ? '/asset/uploads/avatars/' . htmlspecialchars($user['avatar_user'])
+    : 'https://placehold.co/128x128/a78bfa/ffffff?text=Avatar';
 
     //affichage role
     $id_role = $user["id_role"];
@@ -15,13 +21,8 @@ if (isset($_SESSION['user'])) {
 
     //affichage voiture
     $id_user = $user["id_user"];
-    $car = getDataCar($pdo, $id_user);
+    $carData = getDataCar($pdo, $id_user);
 
-    //affichage voiture   
-
-    $avatarPath = !empty($user['avatar_user'])
-        ? '/asset/uploads/avatars/' . htmlspecialchars($user['avatar_user'])
-        : 'https://placehold.co/128x128/a78bfa/ffffff?text=Avatar';
 }
 
 
@@ -77,7 +78,7 @@ if (isset($_SESSION['user'])) {
             <div class="flex items-center justify-between">
                 <span class="text-gray-700">Animaux :</span>
                 <label class="toggle-switch">
-                    <input type="checkbox">
+                    <input type="checkbox" checked>
                     <span class="slider"></span>
                 </label>
             </div>
@@ -101,12 +102,12 @@ if (isset($_SESSION['user'])) {
     <div class="profile-section car-section">
         <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">Mon Véhicule</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
-            <div><span class="font-medium">Marque :</span> <span class="text-gray-900"><?= $car["brand_car"]; ?></span></div>
-            <div><span class="font-medium">Modèle :</span> <span class="text-gray-900"><?= $car["model_car"]; ?></span></div>
-            <div><span class="font-medium">Année :</span> <span class="text-gray-900"><?= $car["year_car"]; ?></span></div>
-            <div><span class="font-medium">Énergie :</span> <span class="text-gray-900"><?= $car["energy_car"]; ?></span></div>
+            <div><span class="font-medium">Marque :</span> <span class="text-gray-900 edit-car" data-field="brand_car"><?= $carData["brand_car"]; ?></span></div>
+            <div><span class="font-medium">Modèle :</span> <span class="text-gray-900 edit-car" data-field="model_car"><?= $carData["model_car"]; ?></span></div>
+            <div><span class="font-medium">Année :</span> <span class="text-gray-900 edit-car" data-field="year_car"><?= $carData["year_car"]; ?></span></div>
+            <div><span class="font-medium">Énergie :</span> <span class="text-gray-900 edit-car" data-field="energy_car"><?= $carData["energy_car"]; ?></span></div>
         </div>
-        <button class="mt-6 px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors shadow-sm">
+        <button id="edit-btn-car" class="mt-6 px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors shadow-sm">
             Modifier mon véhicule
         </button>
     </div>

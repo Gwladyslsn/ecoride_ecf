@@ -1,11 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    /* Modif photo de profil */
+    const editPhoto = document.getElementById('edit-photo');
+    const fileInput = document.getElementById('file-input');
+    const submitBtn = document.getElementById('submit-btn');
+
+    editPhoto.addEventListener('click', (e) => {
+        e.preventDefault();
+        fileInput.classList.remove('hidden');
+        submitBtn.classList.remove('hidden');
+    })
+
+    fileInput.addEventListener('change', () => {
+    });
+
+
+    /* Modif info perso */
     const editBtn = document.getElementById('edit-user-btn');
     const profileSection = editBtn.closest('.profile-section');
 
     editBtn.addEventListener('click', (e) => {
         e.preventDefault();
         if (editBtn.textContent.includes('Modifier')) {
-            // Passer spans en inputs
             const spans = profileSection.querySelectorAll('span.edit-info');
             spans.forEach(span => {
                 const input = document.createElement('input');
@@ -17,14 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             editBtn.textContent = 'Sauvegarder mes informations';
         } else {
-            // Collecter données des inputs
             const inputs = profileSection.querySelectorAll('input[name]');
             const data = {};
             inputs.forEach(input => {
                 data[input.name] = input.value.trim();
             });
 
-            // Envoi AJAX avec fetch (à adapter l'URL et la route PHP)
             fetch('/?controller=page&action=updateUser', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -45,20 +59,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const editPhoto = document.getElementById('edit-photo');
-    const fileInput = document.getElementById('file-input');
-    const submitBtn = document.getElementById('submit-btn');
+    /* Modif info voiture */
+    const editCar = document.getElementById('edit-btn-car');
+    const sectionCar = editCar.closest('.car-section');
 
-    editPhoto.addEventListener('click', (e) =>{
+    editCar.addEventListener('click', (e) => {
         e.preventDefault();
-        fileInput.classList.remove('hidden');
-        submitBtn.classList.remove('hidden');
+        if (editCar.textContent.includes('Modifier')) {
+            const spansCar = sectionCar.querySelectorAll('span.edit-car');
+            spansCar.forEach(spanCar => {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.name = spanCar.dataset.field;
+                input.value = spanCar.textContent.trim();
+                input.classList.add('border', 'border-gray-300', 'rounded', 'px-2', 'py-1', 'w-full');
+                spanCar.replaceWith(input);
+            });
+            editCar.textContent = 'Sauvegarder mes informations';
+        } else {
+            const inputs = sectionCar.querySelectorAll('input[name]');
+            const data = {};
+            inputs.forEach(input => {
+                data[input.name] = input.value.trim();
+            });
+
+            // Envoi à la bdd 
+            fetch('/?controller=page&action=updateCar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+                .then(res => res.json())
+                .then(response => {
+                    if (response.success) {
+                        window.location.reload();
+                    } else {
+                        alert('Erreur : ' + (response.message || 'Impossible de sauvegarder'));
+                    }
+                })
+                .catch(() => {
+                    alert('Erreur réseau ou serveur');
+                });
+        }
     })
-
-    fileInput.addEventListener('change', () => {
-      //test
-    });
-
-
-
 });

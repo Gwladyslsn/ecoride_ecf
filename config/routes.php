@@ -47,6 +47,11 @@ const routes = [
 		'method' => 'updateUser'
 	],
 
+	'/updateCar' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'updateCar'
+	],
+
 ];
 
 
