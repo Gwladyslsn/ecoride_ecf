@@ -120,6 +120,13 @@ CREATE TABLE Avoir (
     FOREIGN KEY (id_preferences) REFERENCES user_preferences(id_preferences)
 );
 
+ALTER TABLE user ADD avatar_user VARCHAR(255);
 SELECT * FROM user;
+
+SELECT name_role FROM role WHERE id_role= 1;
+
+SELECT * FROM user WHERE id_user = 1;
+
+SELECT * FROM car WHERE id_user= 4;
 
 

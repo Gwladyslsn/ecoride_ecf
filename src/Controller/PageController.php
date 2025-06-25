@@ -33,6 +33,9 @@ class PageController extends Controller
                     case 'history':
                         $this->history();
                         break;
+                    case 'updateUser':
+                        $this->updateUser();
+                        break;
                     default:
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
                 }
@@ -84,6 +87,11 @@ class PageController extends Controller
     protected function history()
     {
         $this->render('/page/history', []);
+    }
+
+    protected function updateUser()
+    {
+        $this->render('/page/updateUser', []);
     }
 }
 

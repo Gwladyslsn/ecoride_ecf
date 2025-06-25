@@ -41,6 +41,12 @@ const routes = [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'history'
 	],
+
+	'/updateUser' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'updateUser'
+	],
+
 ];
 
 
