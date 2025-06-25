@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upload_avatar'])) {
     }
 
     if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = _ROOTPATH_ . '/asset/uploads/avatars/';
+        $uploadDir = _ROOTPATH_ . 'public/asset/uploads/avatars/';
         if (!is_dir($uploadDir)) {
             mkdir($uploadDir, 0755, true);
         }

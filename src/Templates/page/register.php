@@ -1,57 +1,56 @@
 <?php
 
 require_once _ROOTPATH_ . '/src/Entity/auth.php';
-
-
 require_once _ROOTPATH_ . '/src/Entity/pdo.php';
 require_once _ROOTPATH_ . '/src/Entity/users.php';
 
 
 $errors = [];
-$formType = $_POST['form_type'] ?? '';
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $formType = $_POST['form_type'] ?? '';
     /* CONNEXION */
     if ($formType === 'log') {
-    $email_user = $_POST["email_user"] ?? '';
-    $password_user = $_POST["password_user"] ?? '';
+        $email_user = $_POST["email_user"] ?? '';
+        $password_user = $_POST["password_user"] ?? '';
 
-    $id_user = verifUserExists($pdo, $email_user, $password_user);
-    if ($id_user !== false) {
-        $_SESSION['user'] = $id_user; 
-        ifLog();
-    } else {
-        echo "Identifiants et/ou mot de passe incorrect(s).";
-    }
-}
-    /* INSCRIPTION */
-} else if ($formType === 'sign') {
-    $name_user = $_POST["name_user"] ?? '';
-    $lastname_user = $_POST["lastname_user"] ?? '';
-    $email_user = $_POST["email_user"] ?? '';
-    $password_user = $_POST["password_user"] ?? '';
-    $id_role = $_POST["id_role"] ?? '';
+        $id_user = verifUserExists($pdo, $email_user, $password_user);
+        if ($id_user !== false) {
+            $_SESSION['user'] = $id_user;
+            ifLog();
+        } else {
+            echo "Identifiants et/ou mot de passe incorrect(s).";
+        }
+        /* INSCRIPTION */
+    } else if ($formType === 'sign') {
+        $name_user = $_POST["name_user"] ?? '';
+        $lastname_user = $_POST["lastname_user"] ?? '';
+        $email_user = $_POST["email_user"] ?? '';
+        $password_user = $_POST["password_user"] ?? '';
+        $id_role = $_POST["id_role"] ?? '';
 
-    $errors = verifyUserInput($_POST);
+        $errors = verifyUserInput($_POST);
 
-    if (empty($errors)) {
-        //Verifier si email existe dans bdd
-        if (emailExists($pdo, $email_user)) {
-            echo '
+        if (empty($errors)) {
+            //Verifier si email existe dans bdd
+            if (emailExists($pdo, $email_user)) {
+                echo '
         <div class="alert alert-success">
             <p class="text-white bg-gray-900 body-font">Un compte avec cette adresse email existe déjà. Veuillez vous connecter ou utiliser une autre adresse.</p>
         </div>
         ';
-        }
-        //Verifier si inscription réussie
-        else {
-            if (addUser($pdo, $name_user,  $lastname_user, $email_user, $password_user, $id_role)) {
-                echo '
+            }
+            //Verifier si inscription réussie
+            else {
+                if (addUser($pdo, $name_user,  $lastname_user, $email_user, $password_user, $id_role)) {
+                    echo '
             <div class="alert alert-success">
                 <p class="text-gray-400 bg-gray-900 body-font">✅ Inscription réussie ! Vous pouvez maintenant vous connecter ! </a></p>
             </div>
             ';
-            } else {
-                $errors[] = "Une erreur est survenue";
+                } else {
+                    $errors[] = "Une erreur est survenue";
+                }
             }
         }
     }
@@ -119,7 +118,6 @@ require_once _ROOTPATH_ . '/src/Templates/header.php';
         </div>
     </form>
 </section>
-<!--<script src="/asset/js/register.js"></script>-->
 
 <?php
 $page_script = '/asset/js/register.js';

@@ -77,7 +77,7 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
             <?php  if (isset($_SESSION['user'])): ?>
                 <a href="http://localhost:8000/?controller=page&action=logout" class="btn btn-header">Déconnexion</a>
             <?php else: ?>
-                <a href="?controller=page&action=register" class="btn btn-header">Connexion</a>
+                <a href="?controller=page&action=register" class="btn btn-header">Connexion / Inscription</a>
             <?php endif; ?>
         </div>
     </div>
