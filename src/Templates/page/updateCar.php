@@ -2,11 +2,51 @@
 session_start();
 header('Content-Type: application/json');
 
-if (!isset($_SESSION['user'])) {
-    echo json_encode(['success' => false, 'message' => 'Utilisateur non connecté']);
-    exit;
+/* Modifier photo voiture */
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['photo_car'])) {
+    require_once _ROOTPATH_ . 'src/Entity/pdo.php';
+
+    if (!isset($_SESSION['user'])) {
+        echo "Vous devez être connecté.";
+        exit;
+    }
+    if (isset($_FILES['photo_car']) && $_FILES['photo_car']['error'] === UPLOAD_ERR_OK) {
+        $uploadDir = _ROOTPATH_ . 'public/asset/uploads/car/';
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0755, true);
+        }
+
+        $tmpName = $_FILES['photo_car']['tmp_name'];
+        $ext = pathinfo($_FILES['photo_car']['name'], PATHINFO_EXTENSION);
+        $filename = uniqid('car_') . '.' . $ext;
+        $target = $uploadDir . $filename;
+
+        if (move_uploaded_file($tmpName, $target)) {
+            $stmt = $pdo->prepare("UPDATE car SET photo_car = :photo_car WHERE id_user = :id_user");
+            $stmt->execute([
+                'photo_car' => $filename,
+                'id_user' => $_SESSION['user']
+            ]);
+
+            header('Location: http://localhost:8000/?controller=page&action=dashboardUser');
+            exit;
+        } else {
+            echo "Erreur lors de l’upload.";
+            exit;
+        }
+    } else {
+        echo "Aucun fichier reçu.";
+        exit;
+    }
+
+    if (!isset($_SESSION['user'])) {
+        echo json_encode(['success' => false, 'message' => 'Utilisateur non connecté']);
+        exit;
+    }
 }
 
+
+/* Modif info voiture */
 $json = file_get_contents('php://input');
 $data = json_decode($json, true);
 
@@ -62,6 +102,3 @@ try {
 } catch (PDOException $e) {
     echo json_encode(['success' => false, 'message' => 'Erreur BDD : ' . $e->getMessage()]);
 }
-
-
-

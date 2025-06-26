@@ -9,11 +9,11 @@ require_once _ROOTPATH_ . '/src/Entity/users.php';
 //affichage info perso
 if (isset($_SESSION['user'])) {
     $user = getDataUser($pdo, $_SESSION['user']);
-    
-    //modif photo
+
+    //modif photo profil
     $avatarPath = !empty($user['avatar_user'])
-    ? '/asset/uploads/avatars/' . htmlspecialchars($user['avatar_user'])
-    : 'https://placehold.co/128x128/a78bfa/ffffff?text=Avatar';
+        ? '/asset/uploads/avatars/' . htmlspecialchars($user['avatar_user'])
+        : 'https://placehold.co/128x128/a78bfa/ffffff?text=Avatar';
 
     //affichage role
     $id_role = $user["id_role"];
@@ -22,6 +22,10 @@ if (isset($_SESSION['user'])) {
     //affichage voiture
     $car = getDataCar($pdo, $user['id_user']);
 
+     //modif photo voiture
+    $avatarPathCar = !empty($car['photo_car'])
+        ? '/asset/uploads/car/' . htmlspecialchars($car['photo_car'])
+        : 'https://placehold.co/128x128/a78bfa/ffffff?text=car';
 }
 
 
@@ -98,21 +102,34 @@ if (isset($_SESSION['user'])) {
         </div>
     </div>
 
-    <?php if($user['id_role'] !== 2): ?>
-    <div class="profile-section car-section">
-        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">Mon Véhicule</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
-            <div><span class="font-medium">Marque :</span> <span class="text-gray-900 edit-car" data-field="brand_car"><?= $car ? $car["brand_car"] : "non-renseigné" ?></span></div>
-            <div><span class="font-medium">Modèle :</span> <span class="text-gray-900 edit-car" data-field="model_car"><?= $car ? $car["model_car"] : "non-renseigné" ?></span></div>
-            <div><span class="font-medium">Année :</span> <span class="text-gray-900 edit-car" data-field="year_car"><?= $car ? $car["year_car"] : "non-renseigné" ?></span></div>
-            <div><span class="font-medium">Énergie :</span> <span class="text-gray-900 edit-car" data-field="energy_car"><?= $car ? $car["energy_car"] : "non-renseigné" ?></span></div>
+    <?php if ($user['id_role'] !== 2): ?>
+        <div class="profile-section car-section">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">Mon Véhicule</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
+                <div><span class="font-medium">Marque :</span> <span class="text-gray-900 edit-car" data-field="brand_car"><?= $car ? $car["brand_car"] : "non-renseigné" ?></span></div>
+                <div><span class="font-medium">Modèle :</span> <span class="text-gray-900 edit-car" data-field="model_car"><?= $car ? $car["model_car"] : "non-renseigné" ?></span></div>
+                <div><span class="font-medium">Année :</span> <span class="text-gray-900 edit-car" data-field="year_car"><?= $car ? $car["year_car"] : "non-renseigné" ?></span></div>
+                <div><span class="font-medium">Énergie :</span> <span class="text-gray-900 edit-car" data-field="energy_car"><?= $car ? $car["energy_car"] : "non-renseigné" ?></span></div>
+            </div>
+            <button id="edit-btn-car" class="mt-6 px-4 py-2 text-white rounded-md shadow-sm edit-btn">
+                Modifier mon véhicule
+            </button>
+            <div class="flex-shrink-0">
+                <img
+                    src="<?= $avatarPathCar ?>"
+                    alt="Photo de profil"
+                    class="w-90 h-50 object-cover border-4 shadow-md">
+            </div>
+            <button id="edit-photo-car" class="btn rounded-md">Modifier photo de ma voiture</button>
+            <form action="http://localhost:8000/?controller=page&action=updateCar" method="POST" enctype="multipart/form-data" class="mt-4">
+                <input id="file-input-car" type="file" name="photo_car" accept="image/*" class="mb-2 hidden text-gray-600">
+                <button id="submit-btn-car" type="submit" name="photo_car" class="hidden px-3 py-1 bg-indigo-600 text-white rounded">
+                    Mettre à jour la photo
+                </button>
+            </form>
         </div>
-        <button id="edit-btn-car" class="mt-6 px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors shadow-sm">
-            Modifier mon véhicule
-        </button>
-    </div>
     <?php endif; ?>
-    
+
 
     <div class="text-center mt-8">
         <button class="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors shadow-md">

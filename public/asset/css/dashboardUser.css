@@ -1,8 +1,4 @@
 
-
-
-
-
 body {
     font-family: 'Inter', sans-serif;
 }
@@ -21,7 +17,6 @@ body {
     position: relative;
     display: inline-block;
     width: 44px;
-    /* Plus large pour la visibilité */
     height: 24px;
 }
 
@@ -71,4 +66,12 @@ input:checked+.slider:before {
     /* Déplacement du curseur */
     -ms-transform: translateX(20px);
     transform: translateX(20px);
+}
+
+.edit-btn{
+    background-color: var(--primary-color);
+}
+
+.edit-btn:hover{
+    background-color: var(--secondary-color);
 }

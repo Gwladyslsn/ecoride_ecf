@@ -124,6 +124,8 @@ CREATE TABLE Avoir (
 );
 
 ALTER TABLE user ADD avatar_user VARCHAR(255);
+
+ALTER TABLE car ADD photo_car VARCHAR(255);
 SELECT * FROM user;
 
 INSERT INTO car (brand_car, model_car, color_car, year_car, energy_car, licensePlate_car, firstPlate_car, id_user) 

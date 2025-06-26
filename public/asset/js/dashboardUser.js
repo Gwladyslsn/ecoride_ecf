@@ -102,4 +102,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         }
     })
+
+    /* Modif photo voiture */
+    const editPhotoCar = document.getElementById('edit-photo-car');
+    const fileInputCar = document.getElementById('file-input-car');
+    const submitBtnCar = document.getElementById('submit-btn-car');
+
+    editPhotoCar.addEventListener('click', (e) => {
+        e.preventDefault();
+        fileInputCar.classList.remove('hidden');
+        submitBtnCar.classList.remove('hidden');
+    })
+
+    fileInputCar.addEventListener('change', () => {
+    });
 });
