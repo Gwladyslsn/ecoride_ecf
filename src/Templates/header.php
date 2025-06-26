@@ -31,7 +31,7 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                     tabindex="0"
                     class="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow">
                     <li>
-                        <a href="" class="text-lg ">Covoiturages</a>
+                        <a href="http://localhost:8000/?controller=page&action=searchCarpooling" class="text-lg ">Covoiturages</a>
                     </li>
                     <li>
                         <?php  if (isset($_SESSION['user'])): ?>
@@ -54,7 +54,7 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1 justify-around">
                 <li>
-                        <a href="" class="text-lg">Covoiturages</a>
+                        <a href="http://localhost:8000/?controller=page&action=searchCarpooling" class="text-lg">Covoiturages</a>
                     </li>
                     <li>
                         <?php  if (isset($_SESSION['user'])): ?>

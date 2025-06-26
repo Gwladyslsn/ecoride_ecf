@@ -36,8 +36,14 @@ class PageController extends Controller
                     case 'updateUser':
                         $this->updateUser();
                         break;
-                        case 'updateCar':
+                    case 'updateCar':
                         $this->updateCar();
+                        break;
+                    case 'addCarpooling':
+                        $this->addCarpooling();
+                        break;
+                    case 'searchCarpooling':
+                        $this->searchCarpooling();
                         break;
                     default:
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
@@ -100,6 +106,16 @@ class PageController extends Controller
     protected function updateCar()
     {
         $this->render('/page/updateCar', []);
+    }
+
+    protected function addCarpooling()
+    {
+        $this->render('/page/addCarpooling', []);
+    }
+
+    protected function searchCarpooling()
+    {
+        $this->render('/page/searchCarpooling', []);
     }
 }
 

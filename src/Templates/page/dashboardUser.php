@@ -116,11 +116,9 @@ if (isset($_SESSION['user'])) {
             </button>
             <div class="flex-shrink-0">
                 <img
-                    src="<?= $avatarPathCar ?>"
-                    alt="Photo de profil"
-                    class="w-90 h-50 object-cover border-4 shadow-md">
+                    src="<?= $avatarPathCar ?>"alt="Photo de voiture" class="w-90 h-50 object-cover border-4 shadow-md">
             </div>
-            <button id="edit-photo-car" class="btn rounded-md">Modifier photo de ma voiture</button>
+            <button id="edit-photo-car" class="btn rounded-md">Modifier la photo de ma voiture</button>
             <form action="http://localhost:8000/?controller=page&action=updateCar" method="POST" enctype="multipart/form-data" class="mt-4">
                 <input id="file-input-car" type="file" name="photo_car" accept="image/*" class="mb-2 hidden text-gray-600">
                 <button id="submit-btn-car" type="submit" name="photo_car" class="hidden px-3 py-1 bg-indigo-600 text-white rounded">
@@ -130,13 +128,25 @@ if (isset($_SESSION['user'])) {
         </div>
     <?php endif; ?>
 
-
+<?php if ($user['id_role'] !== 2): ?>
     <div class="text-center mt-8">
         <button class="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors shadow-md">
-            <i class="fas fa-sign-out-alt mr-2"></i> Se déconnecter
+            <a href="http://localhost:8000/?controller=page&action=addCarpooling">Proposer un trajet</a>
+        </button>
+                <button class="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors shadow-md">
+            <a href="http://localhost:8000/?controller=page&action=searchCarpooling">Rechercher un trajet</a>
         </button>
     </div>
+    <?php else: ?>
+        <div class="text-center mt-8">
+        <button class="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors shadow-md">
+            <a href="http://localhost:8000/?controller=page&action=searchCarpooling">Rechercher un trajet</a>
+        </button>
+    </div>
+    <?php endif; ?>
 </div>
+
+
 
 
 <?php
