@@ -62,6 +62,11 @@ const routes = [
 		'method' => 'searchCarpooling'
 	],
 
+	'/newCarpooling' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'newCarpooling'
+	]
+
 ];
 
 

@@ -45,6 +45,9 @@ class PageController extends Controller
                     case 'searchCarpooling':
                         $this->searchCarpooling();
                         break;
+                    case 'newCarpooling':
+                        $this->newCarpooling();
+                        break;
                     default:
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
                 }
@@ -60,62 +63,67 @@ class PageController extends Controller
 
     protected function home()
     {
-        $this->render('/page/home', []);
+        $this->render('/Templates/page/home', []);
     }
 
     protected function register()
     {
-        $this->render('/page/register', []);
+        $this->render('/Templates/page/register', []);
     }
 
     protected function contact()
     {
-        $this->render('/page/contact', []);
+        $this->render('/Templates/page/contact', []);
     }
 
     protected function about()
     {
-        $this->render('/page/about', []);
+        $this->render('/Templates/page/about', []);
     }
 
     protected function mentions()
     {
-        $this->render('/page/mentions', []);
+        $this->render('/Templates/page/mentions', []);
     }
 
     protected function dashboardUser()
     {
-        $this->render('/page/dashboardUser', []);
+        $this->render('/Templates/page/dashboardUser', []);
     }
 
     protected function logout()
     {
-        $this->render('/logout', []);
+        $this->render('/Templates/logout', []);
     }
 
     protected function history()
     {
-        $this->render('/page/history', []);
+        $this->render('/Templates/page/history', []);
     }
 
     protected function updateUser()
     {
-        $this->render('/page/updateUser', []);
+        $this->render('/Entity/updateUser', []);
     }
 
     protected function updateCar()
     {
-        $this->render('/page/updateCar', []);
+        $this->render('/Entity/updateCar', []);
     }
 
     protected function addCarpooling()
     {
-        $this->render('/page/addCarpooling', []);
+        $this->render('/Templates/page/addCarpooling', []);
     }
 
     protected function searchCarpooling()
     {
-        $this->render('/page/searchCarpooling', []);
+        $this->render('/Templates/page/searchCarpooling', []);
+    }
+
+    protected function newCarpooling()
+    {
+        $this->render('/Entity/newCarpooling', []);
     }
 }
 

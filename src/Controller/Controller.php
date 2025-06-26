@@ -23,7 +23,7 @@ class Controller
                 $pageController->home();
             }
         } catch (\Exception $e) {
-            $this->render('/errors/default', [
+            $this->render('errors/default', [
                 'error' => $e->getMessage()
             ]);
         }
@@ -31,7 +31,7 @@ class Controller
 
     protected function render(string $path, array $params = []): void
     {
-        $filePath = _ROOTPATH_ . 'src/Templates' . $path . '.php';
+        $filePath = _ROOTPATH_ . 'src/' . $path . '.php';
 
         try {
             if (!file_exists($filePath)) {

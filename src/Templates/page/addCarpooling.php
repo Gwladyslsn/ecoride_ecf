@@ -83,6 +83,8 @@ require_once _ROOTPATH_ . '/src/Templates/header.php';
             </div>
         </div>
 
+        <div id="feedback-add-carpooling"></div>
+
         <button class="submit-btn" id="btn-submit-trip">
             Publier mon trajet
         </button>
