@@ -1,5 +1,5 @@
-// Remplacer les caracteres utilisés pour faille xss :
-function escapeHtml(text) {
+// Remplacer les caracteres utilisés pour faille xss si inner.html:
+/*function escapeHtml(text) {
     const map = {
         "&": "&amp",
         "<": "&lt;",
@@ -10,7 +10,7 @@ function escapeHtml(text) {
     return text.replace(/[&<>"']/g, function (m) {
         return map[m]
     });
-}
+}*/
 
 /* SECU CONNEXION */
 
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     btnLog.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click btn login");
+        //console.log("click btn login");
 
         //Nettoyage des input
         let emailLog = emailLogInput.value.trim();
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alertDiv.appendChild(ul);
             feedbackLogin.appendChild(alertDiv);
 
-            console.log("Erreurs de validation côté client :", errors);
+            //console.log("Erreurs de validation côté client :", errors);
         } else {
             formLog.submit();
         }
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     btnSign.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click btn login");
+        //console.log("click btn login");
 
         //Nettoyage des input
         let nameSign = nameSignInput.value.trim();

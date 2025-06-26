@@ -40,11 +40,11 @@
             grid-column: 1 / -1;
         }
 
-        label {
+        .label-add-carpooling {
             font-weight: 600;
-            color: #000000;
             margin-bottom: 8px;
             font-size: 16px;
+            color:var(--text-black)
         }
 
         input, select, textarea {
