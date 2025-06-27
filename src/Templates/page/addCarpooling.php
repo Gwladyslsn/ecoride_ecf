@@ -2,6 +2,7 @@
 
 require_once _ROOTPATH_ . '/src/Templates/header.php';
 
+
 ?>
 
 <section class="new-carpooling ">
@@ -63,6 +64,7 @@ require_once _ROOTPATH_ . '/src/Templates/header.php';
             <div class="form-row">
                 <div class="form-group">
                     <label class="label-add-carpooling">Nombre de places disponibles</label>
+                    <input type="hidden" id="selected-seats" name="nb_place" value="">
                     <div class="seats-selector" id="seat-selector">
                         <div class="seat-option" data-seats="1">1</div>
                         <div class="seat-option" data-seats="2">2</div>
@@ -83,7 +85,14 @@ require_once _ROOTPATH_ . '/src/Templates/header.php';
             </div>
         </div>
 
-        <div id="feedback-add-carpooling"></div>
+        <div id="feedback-add-carpooling">
+
+        </div>
+        <div role="alert" id="alert-success" class="hidden text-center">
+            Votre nouveau trajet a bien été pris en compte
+        </div>
+
+
 
         <button class="submit-btn" id="btn-submit-trip">
             Publier mon trajet

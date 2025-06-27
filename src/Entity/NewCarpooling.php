@@ -65,7 +65,6 @@ foreach ($allowedFields as $field) {
 
 $params['id_car'] = $id_car;
 
-// Requête INSERT
 $sql = "INSERT INTO carpooling (
     departure_city, departure_date, departure_hour,
     arrival_city, arrival_date, arrival_hour,

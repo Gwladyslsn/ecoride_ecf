@@ -126,6 +126,8 @@ CREATE TABLE Avoir (
 ALTER TABLE user ADD avatar_user VARCHAR(255);
 
 ALTER TABLE car ADD photo_car VARCHAR(255);
+
+/*test*/
 SELECT * FROM user;
 
 INSERT INTO car (brand_car, model_car, color_car, year_car, energy_car, licensePlate_car, firstPlate_car, id_user) 
@@ -150,7 +152,7 @@ SELECT * FROM user WHERE id_user = 1;
 SELECT * FROM car WHERE id_user= 4;
 
 
-/*test*/
+
 SELECT * FROM car WHERE id_user = 4;
 SELECT * FROM car c LEFT JOIN user u ON u.id_user = c.id_user WHERE id_car = 1;
 

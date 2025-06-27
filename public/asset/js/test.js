@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    //verif ville FR et exist
+    // ✅ Fonction de vérification ville
     async function cityExists(city) {
         const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(city)}&countrycodes=fr&limit=1`;
         try {
@@ -30,9 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             const data = await response.json();
+            console.log('data city', data);
+
             if (data.length === 0) return false;
 
+            // On prend .name ou .display_name comme fallback
             const nomTrouve = data[0].name || data[0].display_name || "";
+            console.log('Nom trouvé :', nomTrouve);
+
+            // Normalisation
             const normalize = str => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
             return normalize(nomTrouve).includes(normalize(city)); // includes = tolérant
@@ -41,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return false;
         }
     }
-
 
     btnSubmitTrip.addEventListener('click', async (e) => {
         e.preventDefault();
@@ -57,40 +62,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const errors = {};
 
-        // Verif remplissage
-        if (!departureCity || departureCity.length < 2) {
-            errors['departureCity'] = "La ville de départ ne doit pas être vide ou contenir qu'1 caractère";
-        }
-        if (!departureDate) {
-            errors['departureDate'] = "La date de départ ne doit pas être vide";
-        }
-        if (!departureHour) {
-            errors['departureHour'] = "L'heure de départ ne doit pas être vide";
-        }
-        if (!arrivalCity || arrivalCity.length < 2) {
-            errors['arrivalCity'] = "La ville d'arrivée ne doit pas être vide ou contenir qu'1 caractère";
-        }
-        if (!arrivalDate) {
-            errors['arrivalDate'] = "La date d'arrivée ne doit pas être vide";
-        }
-        if (!arrivalHour) {
-            errors['arrivalHour'] = "L'heure d'arrivée ne doit pas être vide";
-        }
-        if (!pricePlace) {
-            errors['pricePlace'] = "Le nombre de crédits ne doit pas être vide";
-        }
-        if (!nbPlace) {
-            errors['nbPlace'] = "Le nombre de places ne doit pas être vide";
-        }
+        // Validation simple
+        if (!departureCity) errors['departureCity'] = "La ville de départ ne doit pas être vide";
+        if (!departureDate) errors['departureDate'] = "La date de départ ne doit pas être vide";
+        if (!departureHour) errors['departureHour'] = "L'heure de départ ne doit pas être vide";
+        if (!arrivalCity) errors['arrivalCity'] = "La ville d'arrivée ne doit pas être vide";
+        if (!arrivalDate) errors['arrivalDate'] = "La date d'arrivée ne doit pas être vide";
+        if (!arrivalHour) errors['arrivalHour'] = "L'heure d'arrivée ne doit pas être vide";
+        if (!pricePlace) errors['pricePlace'] = "Le nombre de crédits ne doit pas être vide";
+        if (!nbPlace) errors['nbPlace'] = "Le nombre de places ne doit pas être vide";
 
         if (Object.keys(errors).length > 0) {
             afficherErreurs(errors);
             return;
         }
 
-
+        // ✅ Vérifie si les villes existent
         const departureCityExists = await cityExists(departureCity);
         const arrivalCityExists = await cityExists(arrivalCity);
+
         if (!departureCityExists || !arrivalCityExists) {
             if (!departureCityExists) errors['villeDepart'] = `La ville de départ "${departureCity}" n'existe pas ou n'est pas en France`;
             if (!arrivalCityExists) errors['villeArrivee'] = `La ville d'arrivée "${arrivalCity}" n'existe pas ou n'est pas en France`;
@@ -98,8 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-
-        // Envoi Back
+        // Envoi des données au backend
         const data = {
             departure_city: departureCity,
             departure_date: departureDate,
@@ -148,6 +137,3 @@ document.addEventListener('DOMContentLoaded', () => {
         feedbackAdd.appendChild(alertDiv);
     }
 });
-
-
-
