@@ -79,7 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const nameSignInput = document.getElementById('name_user_sign');
     const lastnameSignInput = document.getElementById('lastname_user_sign');
     const emailSignInput = document.getElementById('email_sign');
-    const passwordSingInput = document.getElementById('password_sign');
+    const passwordSignInput = document.getElementById('password_sign');
+    const passwordCheckInput = document.getElementById('password_sign_check');
     const btnSign = document.getElementById('btn_sign');
     const feedbackSign = document.getElementById('feedbackSign');
     const formSign = document.getElementById('form_sign');
@@ -92,7 +93,8 @@ document.addEventListener("DOMContentLoaded", function () {
         let nameSign = nameSignInput.value.trim();
         let lastnameSign = lastnameSignInput.value.trim();
         let emailSign = emailSignInput.value.trim();
-        let passwordSign = passwordSingInput.value.trim();
+        let passwordSign = passwordSignInput.value.trim();
+        let passwordCheck = passwordCheckInput.value.trim();
 
         //Stock erreurs
         const errors = {};
@@ -119,13 +121,18 @@ document.addEventListener("DOMContentLoaded", function () {
         if (passwordSign.length < 9) {
             errors['passwordSign'] = "Le Mot de passe doit contenir au moins 9 caractères"
         }
+        if(passwordCheck != passwordSign){
+            errors['passwordCheck'] = "La confirmation du mot de passe est différente"
+        }
 
-
+        console.log("passwordSign:", passwordSign);
+        console.log("passwordCheck:", passwordCheck);
+        console.log("Sont différents:", passwordCheck != passwordSign);
 
         //Afficher message si erreur
     if (Object.keys(errors).length > 0) {
 
-            feedbackLogin.innerHTML = '';
+            feedbackSign.innerHTML = '';
 
             const alertDiv = document.createElement('div');
             alertDiv.className = 'alert alert-danger';

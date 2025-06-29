@@ -106,6 +106,10 @@ require_once _ROOTPATH_ . '/src/Templates/header.php';
                 <input type="password" id="password_sign" name="password_user" class="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative mb-4">
+                <label for="password_user" class="leading-7 text-sm text-gray-600">Confirmation de mot de passe</label>
+                <input type="password" id="password_sign_check" class="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <div class="relative mb-4">
                 <label for="role" class="leading-7 text-sm text-gray-600">Vous êtes : </label>
                 <select id="role" name="id_role" class="bg-white">
                     <option value="">--Choirsir un rôle--</option>
