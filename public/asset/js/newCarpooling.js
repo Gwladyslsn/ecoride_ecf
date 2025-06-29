@@ -121,6 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.success) {
                     const alertSuccess = document.getElementById('alert-success');
                     alertSuccess.classList.remove('hidden');
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 5000)
                 } else {
                     alert('Erreur : ' + (response.message || 'Impossible de sauvegarder'));
                 }
