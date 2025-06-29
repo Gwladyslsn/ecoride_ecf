@@ -65,7 +65,17 @@ foreach ($allowedFields as $field) {
 
 $params['id_car'] = $id_car;
 
-$sql = "INSERT INTO carpooling (
+$checkTripExist = "SELECT COUNT(*) FROM carpooling WHERE id_car = :id_car AND departure_date = :departure_date AND departure_hour = :departure_hour";
+
+$checkStmt = $pdo->prepare($checkTripExist);
+$checkStmt->execute(['id_car' => $params['id_car'], 'departure_date' => $params['departure_date'], 'departure_hour' => $params['departure_hour']]);
+$count = $checkStmt->fetchColumn();
+
+if ($count > 0) {
+    echo json_encode(['success' => false, 'message' => 'Un trajet avec cette voiture à cette date existe deja']);
+    exit;
+} else {
+    $sql = "INSERT INTO carpooling (
     departure_city, departure_date, departure_hour,
     arrival_city, arrival_date, arrival_hour,
     nb_place, price_place, id_car
@@ -75,11 +85,12 @@ $sql = "INSERT INTO carpooling (
     :nb_place, :price_place, :id_car
 )";
 
-try {
-    $stmt = $pdo->prepare($sql);
-    $success = $stmt->execute($params);
+    try {
+        $stmt = $pdo->prepare($sql);
+        $success = $stmt->execute($params);
 
-    echo json_encode(['success' => $success]);
-} catch (PDOException $e) {
-    echo json_encode(['success' => false, 'message' => 'Erreur SQL : ' . $e->getMessage()]);
+        echo json_encode(['success' => $success]);
+    } catch (PDOException $e) {
+        echo json_encode(['success' => false, 'message' => 'Erreur SQL : ' . $e->getMessage()]);
+    }
 }
