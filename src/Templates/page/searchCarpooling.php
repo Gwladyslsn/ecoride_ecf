@@ -30,6 +30,10 @@ require_once _ROOTPATH_ . '/src/Templates/header.php';
     </div>
 </section>
 
+<section class="default-trip">
+    
+</section>
+
 <?php
 //$page_script = '/asset/js/dashboardUser.js';
 require_once _ROOTPATH_ . '/src/Templates/footer.php';
