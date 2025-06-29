@@ -12,6 +12,17 @@
     
 }
 
+.field-password{
+    position: relative;
+}
+
+.field-password .password-show, .field-password .password-hide{
+    position:absolute;
+    top: 0px;
+    right: 0px;
+}
+
+
 /*Style MOBILE*/
 @media screen and (min-width:320px) and (max-width:767px) {
     .sectionLog {

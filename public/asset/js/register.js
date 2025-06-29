@@ -21,6 +21,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const feedbackLogin = document.getElementById('feedbackLogin');
     const formLog = document.getElementById('form_log');
 
+    /* masque / affiche mdp */
+
+    const passwordShowIcon1 = document.querySelector('.password-show1');
+    const passwordHideIcon1 = document.querySelector('.password-hide1');
+
+    passwordShowIcon1.addEventListener('click', function () {
+        passwordLogInput.type = 'text';
+        passwordShowIcon1.classList.add('hidden');
+        passwordHideIcon1.classList.remove('hidden');
+    });
+
+    passwordHideIcon1.addEventListener('click', function () {
+        passwordLogInput.type = 'password';
+        passwordHideIcon1.classList.add('hidden');
+        passwordShowIcon1.classList.remove('hidden');
+    });
+
     btnLog.addEventListener("click", function (event) {
         event.preventDefault();
         //console.log("click btn login");
@@ -85,6 +102,39 @@ document.addEventListener("DOMContentLoaded", function () {
     const feedbackSign = document.getElementById('feedbackSign');
     const formSign = document.getElementById('form_sign');
 
+    /* Masque / affichage mdp */ //A ameliorer + tard (repetition de code)
+
+    const passwordShowIcon2 = document.querySelector('.password-show2');
+    const passwordHideIcon2 = document.querySelector('.password-hide2');
+    const passwordShowIcon3 = document.querySelector('.password-show3');
+    const passwordHideIcon3 = document.querySelector('.password-hide3');
+
+    passwordShowIcon2.addEventListener('click', function () {
+        passwordSignInput.type = 'text';
+        passwordShowIcon2.classList.add('hidden');
+        passwordHideIcon2.classList.remove('hidden');
+    });
+
+    passwordHideIcon2.addEventListener('click', function () {
+        passwordSignInput.type = 'password';
+        passwordHideIcon2.classList.add('hidden');
+        passwordShowIcon2.classList.remove('hidden');
+    });
+
+    passwordShowIcon3.addEventListener('click', function () {
+        passwordCheckInput.type = 'text';
+        passwordShowIcon3.classList.add('hidden');
+        passwordHideIcon3.classList.remove('hidden');
+    });
+
+    passwordHideIcon3.addEventListener('click', function () {
+        passwordCheckInput.type = 'password';
+        passwordHideIcon3.classList.add('hidden');
+        passwordShowIcon3.classList.remove('hidden');
+    });
+
+
+
     btnSign.addEventListener("click", function (event) {
         event.preventDefault();
         //console.log("click btn login");
@@ -121,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (passwordSign.length < 9) {
             errors['passwordSign'] = "Le Mot de passe doit contenir au moins 9 caractères"
         }
-        if(passwordCheck != passwordSign){
+        if (passwordCheck != passwordSign) {
             errors['passwordCheck'] = "La confirmation du mot de passe est différente"
         }
 
@@ -130,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Sont différents:", passwordCheck != passwordSign);
 
         //Afficher message si erreur
-    if (Object.keys(errors).length > 0) {
+        if (Object.keys(errors).length > 0) {
 
             feedbackSign.innerHTML = '';
 
@@ -142,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             for (let key in errors) {
                 const li = document.createElement('li');
-                li.textContent = errors[key]; 
+                li.textContent = errors[key];
                 ul.appendChild(li);
             }
 
@@ -152,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Erreurs de validation côté client :", errors);
         } else {
             formSign.submit();
-    }
+        }
 
     })
 
