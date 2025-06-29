@@ -1,7 +1,9 @@
-<?php 
+<?php
 
 require_once _ROOTPATH_ . '/src/Templates/header.php';
+require_once _ROOTPATH_ . '/src/Entity/trip.php';
 
+$trips = getAllTrips();
 ?>
 
 <!--SearchBar-->
@@ -31,8 +33,15 @@ require_once _ROOTPATH_ . '/src/Templates/header.php';
 </section>
 
 <section class="default-trip">
-    
+    <?php foreach ($trips as $trip): ?>
+        <?php include _ROOTPATH_ . 'src/Templates/trip_item.php'; ?>
+    <?php endforeach; ?>
 </section>
+
+
+
+
+
 
 <?php
 //$page_script = '/asset/js/dashboardUser.js';

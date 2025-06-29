@@ -35,7 +35,7 @@ if (!$id_user) {
     exit;
 }
 
-// Étape 2 : Récupérer l'id_car de la voiture liée à cet utilisateur
+/* Récupérer id_car liée à utilisateur */ 
 $sqlCar = "SELECT id_car FROM car WHERE id_user = :id_user";
 $stmtCar = $pdo->prepare($sqlCar);
 $stmtCar->execute(['id_user' => $id_user]);
@@ -46,7 +46,7 @@ if (!$id_car) {
     exit;
 }
 
-// Champs à insérer dans carpooling
+/* Champs à ajouter dans bdd*/
 $allowedFields = [
     'departure_city',
     'departure_date',
