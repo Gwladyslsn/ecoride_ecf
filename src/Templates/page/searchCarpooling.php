@@ -32,7 +32,7 @@ $trips = getAllTrips();
     </div>
 </section>
 
-<section class="default-trip">
+<section class="default-trip container-trip">
     <?php foreach ($trips as $trip): ?>
         <?php include _ROOTPATH_ . 'src/Templates/trip_item.php'; ?>
     <?php endforeach; ?>
