@@ -5,6 +5,26 @@ header('Content-Type: application/json');
 $json = file_get_contents('php://input');
 $data = json_decode($json, true);
 
+function checkCityExists($city) {
+    $url = "https://geocode.maps.co/search?q=" . urlencode($city) . "&countrycodes=fr&limit=1";
+
+    $options = [
+        "http" => [
+            "header" => "User-Agent: EcorideBackend/1.0"
+        ]
+    ];
+
+    $context = stream_context_create($options);
+    $response = @file_get_contents($url, false, $context);
+
+    if ($response === false) {
+        return false;
+    }
+
+    $dataCity = json_decode($response, true);
+    return !empty($dataCity); // si on a au moins un résultat, la ville est valide
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['success' => false, 'message' => 'Méthode non autorisée, utilisez POST']);
     exit;
@@ -63,6 +83,11 @@ foreach ($allowedFields as $field) {
     $params[$field] = isset($data[$field]) && trim($data[$field]) !== '' ? trim($data[$field]) : null;
 }
 
+if (!checkCityExists($params['departure_city']) || !checkCityExists($params['arrival_city'])) {
+    echo json_encode(['success' => false, 'message' => 'Une des villes saisies est invalide ou non reconnue']);
+    exit;
+}
+
 $params['id_car'] = $id_car;
 
 $checkTripExist = "SELECT COUNT(*) FROM carpooling WHERE id_car = :id_car AND departure_date = :departure_date AND departure_hour = :departure_hour";
@@ -84,6 +109,8 @@ if ($count > 0) {
     :arrival_city, :arrival_date, :arrival_hour,
     :nb_place, :price_place, :id_car
 )";
+
+
 
     try {
         $stmt = $pdo->prepare($sql);

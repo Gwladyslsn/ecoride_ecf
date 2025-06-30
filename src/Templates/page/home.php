@@ -18,7 +18,7 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';?>
             </p>
             <button class="btn btn-home mt-5">
                 <?php  if (isset($_SESSION['user'])): ?>
-                        <a href="?controller=page&action=about">A propos</a>
+                        <a href="?controller=page&action=about">A propos de nous ..</a>
                     <?php else: ?>
                         <a href="http://localhost:8000/?controller=page&action=register" rel="noopener noreferrer">Nous rejoindre</a>
                     <?php endif; ?>
