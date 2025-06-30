@@ -1,9 +1,22 @@
 <?php
 
 require_once _ROOTPATH_ . '/src/Templates/header.php';
-require_once _ROOTPATH_ . '/src/Entity/trip.php';
+require_once _ROOTPATH_ . '/src/Entity/pdo.php';
+require_once _ROOTPATH_ . '/src/Entity/searchTrip.php';
 
-$trips = getAllTrips();
+
+$departure = $_POST['departureCitySearch'] ?? null;
+$arrival = $_POST['arrivalCitySearch'] ?? null;
+$date = $_POST['dateSearch'] ?? null;
+
+// Vérifier s'il y a une recherche (au moins un filtre rempli)
+if ($departure && $arrival && $date) {
+    echo 'voyage suite recherche';
+    $trips = showTripsSearched($pdo, $departure, $arrival, $date);
+} else {
+    echo 'voyage par default';
+    $trips = getAllTrips($pdo);
+}
 ?>
 
 <!--SearchBar-->
@@ -44,6 +57,6 @@ $trips = getAllTrips();
 
 
 <?php
-//$page_script = '/asset/js/dashboardUser.js';
+$page_script = '/asset/js/searchCarpooling.js';
 require_once _ROOTPATH_ . '/src/Templates/footer.php';
 ?>
