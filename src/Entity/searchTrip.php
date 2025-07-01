@@ -33,18 +33,15 @@ function showTripsSearched($pdo, $departure, $arrival, $date)
         JOIN car ON carpooling.id_car = car.id_car
         JOIN user ON car.id_user = user.id_user
         WHERE carpooling.departure_date >= :dateSearch
-        AND carpooling.departure_city = :departureCitySearch
-        AND carpooling.arrival_city = :arrivalCitySearch
+        AND LOWER(carpooling.departure_city) LIKE LOWER(:departureCitySearch)
+        AND LOWER(carpooling.arrival_city) LIKE LOWER(:arrivalCitySearch)
         ORDER BY carpooling.departure_date ASC;";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
-        'dateSearch' => $date,
-        'departureCitySearch' => $departure,
-        'arrivalCitySearch' => $arrival
-    ]);
+    'dateSearch' => $date,
+    'departureCitySearch' => "%".strtolower($departure)."%",
+    'arrivalCitySearch' => "%".strtolower($arrival)."%"
+]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 }
-
-

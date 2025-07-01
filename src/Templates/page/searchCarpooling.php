@@ -9,12 +9,9 @@ $departure = $_POST['departureCitySearch'] ?? null;
 $arrival = $_POST['arrivalCitySearch'] ?? null;
 $date = $_POST['dateSearch'] ?? null;
 
-// Vérifier s'il y a une recherche (au moins un filtre rempli)
 if ($departure && $arrival && $date) {
-    echo 'voyage suite recherche';
     $trips = showTripsSearched($pdo, $departure, $arrival, $date);
 } else {
-    echo 'voyage par default';
     $trips = getAllTrips($pdo);
 }
 ?>
@@ -23,25 +20,26 @@ if ($departure && $arrival && $date) {
 <section class="body-font">
     <div class="container px-5 py-12 mx-auto">
         <div class="flex flex-col text-center w-full mb-8">
-            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2">Trouvez votre trajet dès maintenant grâce à Eco'ride!</h1>
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2">Trouvez votre trajet dès maintenant !</h1>
         </div>
-        <div class="flex lg:w-1/1 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+        <form id="formSearch" method="post" action="http://localhost:8000/?controller=page&action=searchCarpooling" class="flex lg:w-1/1 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
             <div class="relative flex-grow w-full">
-                <label for="full-name" class="leading-7 text-lg">Ville de départ</label>
-                <input type="text" id="full-name" name="full-name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <label for="departureCity" class="leading-7 text-lg">Ville de départ</label>
+                <input type="text" id="departure_city_search" name="departureCitySearch" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative flex-grow w-full">
-                <label for="email" class="leading-7 text-lg">Ville d'arrivée</label>
-                <input type="email" id="email" name="email" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <label for="arrivalCity" class="leading-7 text-lg">Ville d'arrivée</label>
+                <input type="text" id="arrival_city_search" name="arrivalCitySearch" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative flex-grow w-full">
                 <label for="date" class="leading-7 text-lg">date</label>
-                <input type="date" id="date" name="date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input type="date" id="date_search" name="dateSearch" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
-            <button class="border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg btn-search">
-                <a href="">Rechercher</a>
+            <button type="submit" id="btn_search" class="border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg btn-search">
+                <a>Rechercher</a>
             </button>
-        </div>
+        </form>
+        <div id="feedback-search" class="mt-5"></div>
     </div>
 </section>
 
@@ -51,12 +49,21 @@ if ($departure && $arrival && $date) {
     <?php endforeach; ?>
 </section>
 
+<section>
+    <?php 
+        if (!$trips){?>
+            <div id="results" class="text-center">Aucun eco'Driver n'a proposé ce trajet pour le moment</div>
+            <img src="../asset/image/noresult.jpg" alt="image recherche trajet">
+        <?php };?>
+</section>
 
 
 
+
+<script src="/asset/js/resultSearch.js"></script>
+<script src="/asset/js/searchForm.js"></script>
 
 
 <?php
-$page_script = '/asset/js/searchCarpooling.js';
 require_once _ROOTPATH_ . '/src/Templates/footer.php';
 ?>
