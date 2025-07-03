@@ -48,6 +48,12 @@ class PageController extends Controller
                     case 'newCarpooling':
                         $this->newCarpooling();
                         break;
+                    case 'searchTripAPI':
+                        $this->searchTripAPI();
+                        break;
+                    case 'contactUser':
+                        $this->contactUser();
+                        break;
                     default:
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
                 }
@@ -125,6 +131,19 @@ class PageController extends Controller
     {
         $this->render('/Entity/newCarpooling', []);
     }
+
+    protected function searchTripAPI()
+    {
+        $this->render('/Entity/searchTripAPI', []);
+    }
+
+    protected function contactUser()
+    {
+        $this->render('/Entity/contactUser', []);
+    }
 }
+
+
+
 
 

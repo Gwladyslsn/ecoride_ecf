@@ -65,6 +65,16 @@ const routes = [
 	'/newCarpooling' => [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'newCarpooling'
+	],
+
+	'/searchTripAPI' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'searchTripAPI'
+	],
+
+		'/contactUser' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'contactUser'
 	]
 
 ];

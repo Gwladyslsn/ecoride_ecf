@@ -5,6 +5,26 @@ header('Content-Type: application/json');
 $json = file_get_contents('php://input');
 $data = json_decode($json, true);
 
+function checkCityExists($city) {
+    $url = "https://geocode.maps.co/search?q=" . urlencode($city) . "&countrycodes=fr&limit=1";
+
+    $options = [
+        "http" => [
+            "header" => "User-Agent: EcorideBackend/1.0"
+        ]
+    ];
+
+    $context = stream_context_create($options);
+    $response = @file_get_contents($url, false, $context);
+
+    if ($response === false) {
+        return false;
+    }
+
+    $dataCity = json_decode($response, true);
+    return !empty($dataCity); // si on a au moins un résultat, la ville est valide
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['success' => false, 'message' => 'Méthode non autorisée, utilisez POST']);
     exit;
@@ -35,7 +55,7 @@ if (!$id_user) {
     exit;
 }
 
-// Étape 2 : Récupérer l'id_car de la voiture liée à cet utilisateur
+/* Récupérer id_car liée à utilisateur */ 
 $sqlCar = "SELECT id_car FROM car WHERE id_user = :id_user";
 $stmtCar = $pdo->prepare($sqlCar);
 $stmtCar->execute(['id_user' => $id_user]);
@@ -46,7 +66,7 @@ if (!$id_car) {
     exit;
 }
 
-// Champs à insérer dans carpooling
+/* Champs à ajouter dans bdd*/
 $allowedFields = [
     'departure_city',
     'departure_date',
@@ -61,6 +81,18 @@ $allowedFields = [
 $params = [];
 foreach ($allowedFields as $field) {
     $params[$field] = isset($data[$field]) && trim($data[$field]) !== '' ? trim($data[$field]) : null;
+}
+
+if (!checkCityExists($params['departure_city'])) {
+    $errors[] = "La ville de départ n'existe pas.";
+    exit;
+}
+
+sleep(1);
+
+if (!checkCityExists($params['arrival_city'])) {
+    $errors[] = "La ville d'arrivée n'existe pas.";
+    exit;
 }
 
 $params['id_car'] = $id_car;
@@ -84,6 +116,8 @@ if ($count > 0) {
     :arrival_city, :arrival_date, :arrival_hour,
     :nb_place, :price_place, :id_car
 )";
+
+
 
     try {
         $stmt = $pdo->prepare($sql);

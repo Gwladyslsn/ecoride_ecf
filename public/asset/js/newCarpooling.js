@@ -19,29 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    //verif ville FR et exist
-    async function cityExists(city) {
-        const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(city)}&countrycodes=fr&limit=1`;
-        try {
-            const response = await fetch(url, {
-                headers: {
-                    "User-Agent": "EcorideApp/1.0 (contact@ecoride.fr)",
-                    "Accept-Language": "fr"
-                }
-            });
-            const data = await response.json();
-            if (data.length === 0) return false;
-
-            const nomTrouve = data[0].name || data[0].display_name || "";
-            const normalize = str => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-
-            return normalize(nomTrouve).includes(normalize(city)); // includes = tolérant
-        } catch (error) {
-            console.error("Erreur de géolocalisation :", error);
-            return false;
-        }
-    }
-
 
     btnSubmitTrip.addEventListener('click', async (e) => {
         e.preventDefault();
@@ -86,18 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (Object.keys(errors).length > 0) {
             afficherErreurs(errors);
             return;
-        }
-
-
-        const departureCityExists = await cityExists(departureCity);
-        const arrivalCityExists = await cityExists(arrivalCity);
-        if (!departureCityExists || !arrivalCityExists) {
-            if (!departureCityExists) errors['villeDepart'] = `La ville de départ "${departureCity}" n'existe pas ou n'est pas en France`;
-            if (!arrivalCityExists) errors['villeArrivee'] = `La ville d'arrivée "${arrivalCity}" n'existe pas ou n'est pas en France`;
-            afficherErreurs(errors);
-            return;
-        }
-
+        };
 
         // Envoi Back
         const data = {

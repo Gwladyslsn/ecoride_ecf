@@ -2,7 +2,6 @@
 
 require_once _ROOTPATH_ . '/src/Templates/header.php';
 
-
 ?>
 
 <section class="new-carpooling ">
