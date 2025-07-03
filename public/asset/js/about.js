@@ -11,7 +11,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Initialisation
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.value-card, .stat-item, .commitment-item');
     cards.forEach(card => {

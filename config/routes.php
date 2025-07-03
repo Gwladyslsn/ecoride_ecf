@@ -70,6 +70,11 @@ const routes = [
 	'/searchTripAPI' => [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'searchTripAPI'
+	],
+
+		'/contactUser' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'contactUser'
 	]
 
 ];
