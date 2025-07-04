@@ -22,7 +22,7 @@ $avatarDriver = !empty($trip['avatar_user'])
 
                     <div class="mb-2">
                         <p class="text-sm text-gray-600 font-semibold uppercase">Départ</p>
-                        <p class="text-base">
+                        <p class="text-black">
                             <?= htmlspecialchars($trip['departure_city']) ?> -
                             le <?= date('d/m/Y', strtotime($trip['departure_date'])) ?> à <?= htmlspecialchars($trip['departure_hour']) ?>
                         </p>
@@ -30,7 +30,7 @@ $avatarDriver = !empty($trip['avatar_user'])
 
                     <div class="mb-2">
                         <p class="text-sm text-gray-600 font-semibold uppercase">Arrivée</p>
-                        <p class="text-base">
+                        <p class="text-black">
                             <?= htmlspecialchars($trip['arrival_city']) ?> -
                             le <?= date('d/m/Y', strtotime($trip['arrival_date'])) ?> à <?= htmlspecialchars($trip['arrival_hour']) ?>
                         </p>
@@ -38,7 +38,7 @@ $avatarDriver = !empty($trip['avatar_user'])
 
                     <div class="mb-2">
                         <p class="text-sm text-gray-600 font-semibold uppercase">Place(s) disponible(s)</p>
-                        <p class="text-base">
+                        <p class="text-black">
                             <?= htmlspecialchars($trip['nb_place']) ?>
                         </p>
                     </div>

@@ -52,8 +52,8 @@ if ($departure && $arrival && $date) {
 <section>
     <?php 
         if (!$trips){?>
-            <div id="results" class="text-center">Aucun eco'Driver n'a proposé ce trajet pour le moment</div>
-            <img src="../asset/image/noresult.jpg" alt="image recherche trajet">
+            <div id="results" class="text-center mb-5 text-lg">Aucun eco'Driver n'a proposé ce trajet pour le moment</div>
+            <img src="../asset/image/noresult.jpg" alt="image recherche trajet" class="w-400 rounded-lg mx-auto">
         <?php };?>
 </section>
 
