@@ -75,6 +75,11 @@ const routes = [
 		'/contactUser' => [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'contactUser'
+	],
+
+		'/reviewEcoride' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'reviewEcoride'
 	]
 
 ];

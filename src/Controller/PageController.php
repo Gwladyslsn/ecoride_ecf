@@ -54,6 +54,9 @@ class PageController extends Controller
                     case 'contactUser':
                         $this->contactUser();
                         break;
+                    case 'reviewEcoride':
+                        $this->reviewEcoride();
+                        break;
                     default:
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
                 }
@@ -140,6 +143,11 @@ class PageController extends Controller
     protected function contactUser()
     {
         $this->render('/Entity/contactUser', []);
+    }
+
+    protected function reviewEcoride()
+    {
+        $this->render('/Templates/page/reviewEcoride', []);
     }
 }
 
