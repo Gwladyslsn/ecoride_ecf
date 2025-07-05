@@ -21,18 +21,18 @@ require_once _ROOTPATH_ . '/src/Templates/header.php';
             <div class="relative">
                 <label for="rating" class="text-lg text-white">Votre note :</label>
                 <div class="rating w-full" id="rating-ecoride">
-                    <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500" aria-label="1 star" />
-                    <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500" aria-label="2 star" />
-                    <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500" aria-label="3 star" />
-                    <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500" aria-label="4 star" checked="checked" />
-                    <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500" aria-label="5 star" />
+                    <input type="radio" name="rating-4" value="1" class="mask mask-star-2 bg-green-500" aria-label="1 star" />
+                    <input type="radio" name="rating-4" value="2" class="mask mask-star-2 bg-green-500" aria-label="2 star" />
+                    <input type="radio" name="rating-4" value="3" class="mask mask-star-2 bg-green-500" aria-label="3 star" />
+                    <input type="radio" name="rating-4" value="4" class="mask mask-star-2 bg-green-500" aria-label="4 star" />
+                    <input type="radio" name="rating-4" value="5" class="mask mask-star-2 bg-green-500" aria-label="5 star" />
                 </div>
             </div>
         </div>
         <div class="p-2">
             <div class="relative"></div>
             <label for="text-review-ecoride" class="text-lg text-white">Votre avis :</label>
-            <textarea id="text-review-ecoride" name="comment" placeholder="Votre avis..." class="w-full" required></textarea>
+            <textarea id="text-review-ecoride" name="comment" placeholder="Votre avis..." class="w-full"></textarea>
         </div>
         </div>
         <div class="p-2 w-full">
@@ -45,5 +45,5 @@ require_once _ROOTPATH_ . '/src/Templates/header.php';
 
 
 <?php
-//$page_script = '/asset/js/contact.js';
+$page_script = '/asset/js/reviewEcoride.js';
 require_once _ROOTPATH_ . '/src/Templates/footer.php'; ?>
