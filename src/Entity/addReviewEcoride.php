@@ -1,5 +1,6 @@
 <?php  
 
+//insertion données dans mongoDB
 require _ROOTPATH_ . 'vendor/autoload.php';
 use MongoDB\Client;
 date_default_timezone_set('Europe/Paris');
@@ -24,13 +25,6 @@ $insertResult = $collection->insertOne([
 
 ]);
 
-/*$response = [
-    'success' => true,
-    'message' => 'Avis enregistré avec succès !',
-];
-
-header('Content-Type: application/json');
-echo json_encode($response);*/
 
 
 ?>
