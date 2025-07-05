@@ -57,6 +57,9 @@ class PageController extends Controller
                     case 'reviewEcoride':
                         $this->reviewEcoride();
                         break;
+                    case 'addReviewEcoride':
+                        $this->addReviewEcoride();
+                        break;
                     default:
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
                 }
@@ -148,6 +151,11 @@ class PageController extends Controller
     protected function reviewEcoride()
     {
         $this->render('/Templates/page/reviewEcoride', []);
+    }
+
+    protected function addReviewEcoride()
+    {
+        $this->render('/Entity/addReviewEcoride', []);
     }
 }
 

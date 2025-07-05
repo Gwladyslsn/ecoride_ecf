@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let selectedRating = document.querySelector('input[name="rating-4"]:checked').value;
         let textReviewEcoride = textReviewEcorideInput.value.trim();
 
-        console.log('note :', selectedRating);
+        //console.log('data :',nameReviewEcoride, emailReviewEcoride, selectedRating, textReviewEcoride);
 
 
         const errors = {}
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
             formReviewEcoride.appendChild(alertDiv);
 
         } else {
-            fetch('?controller=page&action=reviewEcoride', {
+            fetch('?controller=page&action=addReviewEcoride', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 body: JSON.stringify({
                     nameReviewEcoride: nameReviewEcoride,
                     emailReviewEcoride: emailReviewEcoride,
-                    ratingReviewEcoride: ratingReviewEcoride,
+                    selectedRating: selectedRating,
                     textReviewEcoride: textReviewEcoride
                 })
             })
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     feedbackReviewEcoride.innerHTML = '';
                     const alertSuccess = document.createElement('div');
                     alertSuccess.className = 'alert alert-success';
-                    alertSuccess.textContent = data;
+                    alertSuccess.textContent = 'Votre message a été envoyé avec succès';
                     formReviewEcoride.appendChild(alertSuccess);
 
                     setTimeout(() => {
@@ -95,9 +95,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     })
 })
-
-/*
-feedbackReviewEcoride.innerHTML = '';
-            formReviewEcoride.reset();
-            feedbackReviewEcoride.textContent = "Avis envoyé avec succès";
-*/

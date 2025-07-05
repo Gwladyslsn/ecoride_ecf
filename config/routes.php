@@ -80,6 +80,11 @@ const routes = [
 		'/reviewEcoride' => [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'reviewEcoride'
+	],
+
+		'/addReviewEcoride' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'addReviewEcoride'
 	]
 
 ];
