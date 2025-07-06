@@ -3,7 +3,7 @@ require_once _ROOTPATH_ . '/src/Entity/pdo.php';
 require_once _ROOTPATH_ . '/src/Entity/searchTrip.php';
 
 global $pdo;
-error_log('Valeur de $pdo dans searchTripAPI.php : ' . var_export($pdo, true));
+//error_log('Valeur de $pdo dans searchTripAPI.php : ' . var_export($pdo, true));
 
 $json = file_get_contents('php://input');
 $data = json_decode($json, true);

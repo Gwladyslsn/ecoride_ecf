@@ -1,7 +1,10 @@
 <?php
 
-require_once _ROOTPATH_ . '/src/Templates/header.php'; 
+require_once _ROOTPATH_ . '/src/Templates/header.php';
 require_once _ROOTPATH_ . '/src/Entity/auth.php';
+require_once _ROOTPATH_ . '/src/Entity/getReview.php';
+$reviews = getAllReview();
+
 ?>
 
 
@@ -12,17 +15,17 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
             <h1 class="mb-5 text-5xl font-bold">Avec Eco'ride, voyagez proprement</h1>
             <p class="text-xl mt-8">
                 Chez Ecoride, on croit qu’il est possible de se déplacer tout en respectant la planète. Notre plateforme de covoiturage met en relation conducteurs et passagers pour partager un trajet, réduire leur empreinte carbone et faire des économies, tout simplement.<br>
-                        Que vous soyez conducteur avec des places disponibles ou passager à la recherche d’un trajet pratique et économique, Ecoride vous accompagne à chaque étape.<br><br>
-                        🔍 Recherchez un trajet en quelques clics<br>
-                        🚗 Réservez votre place grâce à un système de crédits simple et sécurisé<br>
-                        🤝 Rencontrez des personnes qui partagent vos valeurs<br>
+                Que vous soyez conducteur avec des places disponibles ou passager à la recherche d’un trajet pratique et économique, Ecoride vous accompagne à chaque étape.<br><br>
+                🔍 Recherchez un trajet en quelques clics<br>
+                🚗 Réservez votre place grâce à un système de crédits simple et sécurisé<br>
+                🤝 Rencontrez des personnes qui partagent vos valeurs<br>
             </p>
             <button class="btn btn-home mt-5">
-                <?php  if (isset($_SESSION['user'])): ?>
-                        <a href="?controller=page&action=about">A propos de nous</a>
-                    <?php else: ?>
-                        <a href="http://localhost:8000/?controller=page&action=register" rel="noopener noreferrer">Nous rejoindre</a>
-                    <?php endif; ?>
+                <?php if (isset($_SESSION['user'])): ?>
+                    <a href="?controller=page&action=about">A propos de nous</a>
+                <?php else: ?>
+                    <a href="http://localhost:8000/?controller=page&action=register" rel="noopener noreferrer">Nous rejoindre</a>
+                <?php endif; ?>
             </button>
         </div>
     </div>
@@ -114,12 +117,26 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                 <input type="date" id="date_search" name="dateSearch" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <button type="submit" id="btn_search" class="border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg btn-search">
-                <a  >Rechercher</a>
+                <a>Rechercher</a>
             </button>
         </form>
         <div id="feedback-search" class="mt-5"></div>
     </div>
 </section>
+
+<!--Avis sur ecoride-->
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+        <h1 class="text-3xl font-medium title-font text-white mb-12 text-center">Les avis des utilisateurs</h1>
+        <?php foreach ($reviews as $review): ?>
+            <?php include _ROOTPATH_ . 'src/Templates/review_item.php'; ?>
+        <?php endforeach; ?>
+    </div>
+</section>
+
+
+
+
 
 <script src="/asset/js/searchForm.js"></script>
 
