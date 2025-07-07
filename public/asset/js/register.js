@@ -175,10 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
             errors['passwordCheck'] = "La confirmation du mot de passe est différente"
         }
 
-        console.log("passwordSign:", passwordSign);
-        console.log("passwordCheck:", passwordCheck);
-        console.log("Sont différents:", passwordCheck != passwordSign);
-
         //Afficher message si erreur
         if (Object.keys(errors).length > 0) {
 

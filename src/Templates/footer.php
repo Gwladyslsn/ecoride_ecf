@@ -2,6 +2,7 @@
     <nav class="grid grid-flow-col gap-4">
         <a href="http://localhost:8000/?controller=page&action=about" class="link link-hover">A propos</a>
         <a href="http://localhost:8000/?controller=page&action=contact" class="link link-hover">Contact</a>
+        <a href="http://localhost:8000/?controller=page&action=reviewEcoride" class="link link-hover">Laisser un avis</a>
         <a href="http://localhost:8000/?controller=page&action=register" class="link link-hover">Connexion</a>
         <a href="http://localhost:8000/?controller=page&action=register" class="link link-hover">Inscription</a>
     </nav>

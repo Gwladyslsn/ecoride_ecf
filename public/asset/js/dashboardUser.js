@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(res => res.json())
                 .then(response => {
                     if (response.success) {
-                        //alert('Informations mises à jour !');
+                        //debug : alert('Informations mises à jour !');
                         window.location.reload();
                     } else {
                         alert('Erreur : ' + (response.message || 'Impossible de sauvegarder'));
