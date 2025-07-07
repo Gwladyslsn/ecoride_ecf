@@ -1,13 +1,13 @@
-<?php 
+<?php
 
 const routes = [
 	'/' => [
 		'controller' => App\Controller\Controller::class,
-		'method' => 'home', 
-        
+		'method' => 'home',
+
 	],
 
-    '/register' => [
+	'/register' => [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'register'
 	],
@@ -72,26 +72,29 @@ const routes = [
 		'method' => 'searchTripAPI'
 	],
 
-		'/contactUser' => [
+	'/contactUser' => [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'contactUser'
 	],
 
-		'/reviewEcoride' => [
+	'/reviewEcoride' => [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'reviewEcoride'
 	],
 
-		'/addReviewEcoride' => [
+	'/addReviewEcoride' => [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'addReviewEcoride'
 	],
 
-		'/createAdmin' => [
+	'/createAdmin' => [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'createAdmin'
-		],
+	],
+
+	'/homeAdmin' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'homeAdmin'
+	],
 
 ];
-
-

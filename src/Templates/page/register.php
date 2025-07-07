@@ -9,15 +9,30 @@ $errors = [];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $formType = $_POST['form_type'] ?? '';
-    /* CONNEXION */
-    if ($formType === 'log') {
-        $email_user = $_POST["email_user"] ?? '';
-        $password_user = $_POST["password_user"] ?? '';
 
-        $id_user = verifUserExists($pdo, $email_user, $password_user);
+    if ($formType === 'log') {
+        $email = $_POST["email_user"] ?? '';
+        $password = $_POST["password_user"] ?? '';
+
+        // 1. Tentative de connexion en tant qu'admin
+        $admin = getAdminByEmail($pdo, $email);
+
+        if ($admin && password_verify($password, $admin['password_admin'])) {
+            $_SESSION['admin'] = [
+                'id_admin' => $admin['id_admin'],
+                'email_admin' => $admin['email_admin'],
+                'name_admin' => $admin['name_admin']
+            ];
+            header('Location: ?controller=page&action=homeAdmin');
+            exit;
+        }
+
+        // 2. Sinon, tentative de connexion en tant qu'utilisateur
+        $id_user = verifUserExists($pdo, $email, $password);
         if ($id_user !== false) {
             $_SESSION['user'] = $id_user;
-            ifLog();
+            header('Location: ?controller=page&action=home');
+            exit;
         } else {
             echo "Identifiants et/ou mot de passe incorrect(s).";
         }
