@@ -35,9 +35,11 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                     </li>
                     <li>
                         <?php  if (isset($_SESSION['user'])): ?>
-                            <a href="http://localhost:8000/?controller=page&action=history" class="text-lg ">Historique</a>
+                            <a href="http://localhost:8000/?controller=page&action=history" class="text-lg">Historique</a>
+                        <?php elseif(isset($_SESSION['admin'])): ?>
+                            <a href="http://localhost:8000/?controller=admin&action=dashboardAdmin" class="text-lg">dashboard</a>
                         <?php else: ?>
-                            <a href="?controller=page&action=about" class="text-lg ">A propos</a>
+                            <a href="?controller=page&action=about" class="text-lg">A propos</a>
                         <?php endif; ?>
                     </li>
                     <li>
@@ -58,9 +60,11 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                     </li>
                     <li>
                         <?php  if (isset($_SESSION['user'])): ?>
-                            <a href="http://localhost:8000/?controller=page&action=history" class="text-lg ">Historique</a>
+                            <a href="http://localhost:8000/?controller=page&action=history" class="text-lg">Historique</a>
+                            <?php elseif(isset($_SESSION['admin'])): ?>
+                            <a href="http://localhost:8000/?controller=admin&action=dashboardAdmin" class="text-lg">dashboard</a>
                         <?php else: ?>
-                            <a href="?controller=page&action=about" class="text-lg ">A propos</a>
+                            <a href="?controller=page&action=about" class="text-lg">A propos</a>
                         <?php endif; ?>
                     </li>
                     <li>
@@ -74,7 +78,7 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
             </ul>
         </div>
         <div class="navbar-end">
-            <?php  if (isset($_SESSION['user'])): ?>
+            <?php  if (isset($_SESSION['user']) || isset($_SESSION['admin'])): ?>
                 <a href="http://localhost:8000/?controller=page&action=logout" class="btn btn-header">Déconnexion</a>
             <?php else: ?>
                 <a href="?controller=page&action=register" class="btn btn-header">Connexion / Inscription</a>

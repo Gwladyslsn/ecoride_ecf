@@ -12,8 +12,8 @@ class AdminController extends Controller
                     case 'createAdmin':
                         $this->createAdmin();
                         break;
-                    case 'homeAdmin':
-                        $this->homeAdmin();
+                    case 'dashboardAdmin':
+                        $this->dashboardAdmin();
                         break;
                     default:
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
@@ -34,9 +34,9 @@ class AdminController extends Controller
         $this->render('/Entity/createAdmin', []);
     }
 
-    protected function homeAdmin()
+    protected function dashboardAdmin()
     {
-        $this->render('/Templates/page/admin/homeAdmin', []);
+        $this->render('/Templates/page/admin/dashboardAdmin', []);
     }
 }
 
