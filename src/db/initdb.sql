@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 -- Active: 1751042571760@@127.0.0.1@3307@ecoride
+=======
+-- Active: 1748279906913@@127.0.0.1@3307@ecoride
+>>>>>>> 69bd41a72e75f684893640bbdeade5b395d36ba3
 CREATE DATABASE ecoride;
 USE ecoride;
 
@@ -31,10 +35,13 @@ INSERT INTO role (name_role) VALUES
 ("passager"),
 ("chauffeur-passager");
 
+<<<<<<< HEAD
 INSERT INTO role (name_role) VALUES 
 ("admin"),
 ("employe");
 
+=======
+>>>>>>> 69bd41a72e75f684893640bbdeade5b395d36ba3
 
 CREATE TABLE admin (
     id_admin INT AUTO_INCREMENT PRIMARY KEY,
