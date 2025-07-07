@@ -1,4 +1,4 @@
--- Active: 1748279906913@@127.0.0.1@3307@ecoride
+-- Active: 1751042571760@@127.0.0.1@3307@ecoride
 CREATE DATABASE ecoride;
 USE ecoride;
 
@@ -30,6 +30,10 @@ INSERT INTO role (name_role) VALUES
 ("chauffeur"),
 ("passager"),
 ("chauffeur-passager");
+
+INSERT INTO role (name_role) VALUES 
+("admin"),
+("employe");
 
 
 CREATE TABLE admin (

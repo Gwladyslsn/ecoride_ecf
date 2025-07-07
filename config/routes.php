@@ -85,6 +85,11 @@ const routes = [
 		'/addReviewEcoride' => [
 		'controller' => App\Controller\Controller::class,
 		'method' => 'addReviewEcoride'
+	],
+
+		'/createAdmin' => [
+		'controller' => App\Controller\Controller::class,
+		'method' => 'createAdmin'
 	]
 
 ];
