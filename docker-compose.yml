@@ -15,10 +15,10 @@ services:
     image: mysql:8.0
     container_name: mysqlEcoride
     environment:
-      MYSQL_ROOT_PASSWORD: pass
-      MYSQL_DATABASE: ecoride
-      MYSQL_USER: gwld
-      MYSQL_PASSWORD: pass2gwld
+      MYSQL_ROOT_PASSWORD: ${MYSQL_root_password}
+      MYSQL_DATABASE: ${MYSQL_database}
+      MYSQL_USER: ${MYSQL_user}
+      MYSQL_PASSWORD: ${MYSQL_password}
     ports:
       - 3307:3306
     volumes:
@@ -28,9 +28,9 @@ services:
     container_name: phpmyadminEcoride
     environment:
       PMA_ARBITRARY: 1
-      PMA_HOST: db
-      PMA_USER: gwld
-      PMA_PASSWORD: pass2gwld
+      PMA_HOST: ${db_host}
+      PMA_USER: ${db_user}
+      PMA_PASSWORD: ${db_password}
     ports:
       - 8899:80
 
@@ -50,9 +50,9 @@ services:
     ports:
       - 8081:8081
     environment:
-      - ME_CONFIG_MONGODB_SERVER=mongodb
-      - ME_CONFIG_BASICAUTH_USERNAME=gwld
-      - ME_CONFIG_BASICAUTH_PASSWORD=gwldpass
+      - ME_CONFIG_MONGODB_SERVER=${mongo_server}
+      - ME_CONFIG_BASICAUTH_USERNAME=${mongo_username}
+      - ME_CONFIG_BASICAUTH_PASSWORD=${mongo_password}
 
 
 volumes:
