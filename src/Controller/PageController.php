@@ -60,6 +60,9 @@ class PageController extends Controller
                     case 'addReviewEcoride':
                         $this->addReviewEcoride();
                         break;
+                    case 'createAdmin':
+                        $this->createAdmin();
+                        break;
                     default:
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
                 }
@@ -156,6 +159,11 @@ class PageController extends Controller
     protected function addReviewEcoride()
     {
         $this->render('/Entity/addReviewEcoride', []);
+    }
+
+    protected function createAdmin()
+    {
+        $this->render('/Entity/createAdmin', []);
     }
 }
 

@@ -1,5 +1,8 @@
 <?php 
 
+/* Creation admin */
+
+
 
 function addUser(PDO $pdo,string $name_user, string $lastname_user, string $email_user, string $password_user, string $id_role):bool
 {
