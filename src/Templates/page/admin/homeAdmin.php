@@ -4,7 +4,7 @@ require_once _ROOTPATH_ . '/src/Templates/header.php';
 
 
 if (!isset($_SESSION['admin'])) {
-    header('Location: ?controller=page&action=homeAdmin');
+    header('Location: ?controller=admin&action=homeAdmin');
     exit;
 }
 ?>

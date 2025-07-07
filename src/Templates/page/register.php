@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 'email_admin' => $admin['email_admin'],
                 'name_admin' => $admin['name_admin']
             ];
-            header('Location: ?controller=page&action=homeAdmin');
+            header('Location: ?controller=admin&action=homeAdmin');
             exit;
         }
 
