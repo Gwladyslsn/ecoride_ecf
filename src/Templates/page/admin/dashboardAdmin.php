@@ -9,7 +9,7 @@ if (!isset($_SESSION['admin'])) {
 }
 ?>
 
-<h1>Page accueil admin</h1>
+<h1>Page dashboard admin</h1>
 
 
 

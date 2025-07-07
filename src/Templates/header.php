@@ -37,7 +37,7 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                         <?php  if (isset($_SESSION['user'])): ?>
                             <a href="http://localhost:8000/?controller=page&action=history" class="text-lg">Historique</a>
                         <?php elseif(isset($_SESSION['admin'])): ?>
-                            <a href="http://localhost:8000/?controller=admin&action=dashboardAdmin" class="text-lg">dashboard</a>
+                            <a href="http://localhost:8000/?controller=admin&action=dashboardAdmin" class="text-lg">Dashboard</a>
                         <?php else: ?>
                             <a href="?controller=page&action=about" class="text-lg">A propos</a>
                         <?php endif; ?>
@@ -62,7 +62,7 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                         <?php  if (isset($_SESSION['user'])): ?>
                             <a href="http://localhost:8000/?controller=page&action=history" class="text-lg">Historique</a>
                             <?php elseif(isset($_SESSION['admin'])): ?>
-                            <a href="http://localhost:8000/?controller=admin&action=dashboardAdmin" class="text-lg">dashboard</a>
+                            <a href="http://localhost:8000/?controller=admin&action=dashboardAdmin" class="text-lg">Dashboard</a>
                         <?php else: ?>
                             <a href="?controller=page&action=about" class="text-lg">A propos</a>
                         <?php endif; ?>
