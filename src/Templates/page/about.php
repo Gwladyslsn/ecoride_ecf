@@ -96,7 +96,7 @@ require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
         <p style="font-size: 1.1rem; margin-bottom: 30px;">Ils veulent que cela reste un outil proche des gens, ancré dans les territoires, et utile à la transition écologique.</p>
         <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 20px;">Parce que chaque trajet compte. Parce qu'on peut changer les choses… un covoit' à la fois.</p>
         <button class="cta-button">
-        <a href="http://localhost:8000/asset/Templates/page/home.php?controller=page&action=register">Rejoindre la Communauté EcoRide</a>    
+        <a href="<?= BASE_URL ?>?controller=page&action=register">Rejoindre la Communauté EcoRide</a>
         </button>
     </div>
 </section>

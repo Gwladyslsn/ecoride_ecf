@@ -45,7 +45,7 @@ require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
 
         <h2 class="text-xl">6. Contact </h2>
         Pour toute question ou réclamation, vous pouvez nous contacter à l’adresse
-        suivante : contact2ecoride@gmail.com ou via notre <a href="http://localhost:8000/?controller=page&action=contact">formulaire de contact</a>.
+        suivante : contact2ecoride@gmail.com ou via notre <a href="<?= BASE_URL ?>/?controller=page&action=contact">formulaire de contact</a>.
     </div>
 </section>
 

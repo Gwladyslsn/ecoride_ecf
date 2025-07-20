@@ -38,14 +38,14 @@ if (isset($_SESSION['user'])) {
         <div class="flex-shrink-0">
             <img
                 src="<?= $avatarPath ?>"
-                alt="Photo de profil"
+                alt="icone de profil"
                 class="w-32 h-32 rounded-full object-cover border-4 border-purple-300 shadow-md">
         </div>
         <div class="flex-grow text-center md:text-left">
             <h2 class="text-2xl font-semibold text-gray-900"><?= $user["name_user"]; ?></h2>
             <p class="text-gray-600"><?= $role['name_role']; ?></p>
             <button id="edit-photo" class="btn rounded-md">Modifier ma photo</button>
-            <form action="http://localhost:8000/?controller=page&action=updateUser" method="POST" enctype="multipart/form-data" class="mt-4">
+            <form action="<?= BASE_URL ?>/?controller=page&action=updateUser" method="POST" enctype="multipart/form-data" class="mt-4">
                 <input id="file-input" type="file" name="avatar" accept="image/*" class="mb-2 hidden text-gray-600">
                 <button id="submit-btn" type="submit" name="upload_avatar" class="hidden px-3 py-1 bg-indigo-600 text-white rounded">
                     Mettre à jour la photo
@@ -119,7 +119,7 @@ if (isset($_SESSION['user'])) {
                     src="<?= $avatarPathCar ?>"alt="Photo de voiture" class="w-90 h-50 object-cover border-4 shadow-md">
             </div>
             <button id="edit-photo-car" class="btn rounded-md">Modifier la photo de ma voiture</button>
-            <form action="http://localhost:8000/?controller=page&action=updateCar" method="POST" enctype="multipart/form-data" class="mt-4">
+            <form action="<?= BASE_URL ?>/?controller=page&action=updateCar" method="POST" enctype="multipart/form-data" class="mt-4">
                 <input id="file-input-car" type="file" name="photo_car" accept="image/*" class="mb-2 hidden text-gray-600">
                 <button id="submit-btn-car" type="submit" name="photo_car" class="hidden px-3 py-1 bg-indigo-600 text-white rounded">
                     Mettre à jour la photo
@@ -131,16 +131,16 @@ if (isset($_SESSION['user'])) {
 <?php if ($user['id_role'] !== 2): ?>
     <div class="text-center mt-8">
         <button class="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors shadow-md">
-            <a href="http://localhost:8000/?controller=page&action=addCarpooling">Proposer un trajet</a>
+            <a href="<?= BASE_URL ?>/?controller=page&action=addCarpooling">Proposer un trajet</a>
         </button>
                 <button class="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors shadow-md">
-            <a href="http://localhost:8000/?controller=page&action=searchCarpooling">Rechercher un trajet</a>
+            <a href="<?= BASE_URL ?>/?controller=page&action=searchCarpooling">Rechercher un trajet</a>
         </button>
     </div>
     <?php else: ?>
         <div class="text-center mt-8">
         <button class="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors shadow-md">
-            <a href="http://localhost:8000/?controller=page&action=searchCarpooling">Rechercher un trajet</a>
+            <a href="<?= BASE_URL ?>/?controller=page&action=searchCarpooling">Rechercher un trajet</a>
         </button>
     </div>
     <?php endif; ?>

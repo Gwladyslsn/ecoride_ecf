@@ -31,55 +31,55 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                     tabindex="0"
                     class="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow">
                     <li>
-                        <a href="http://localhost:8000/?controller=page&action=searchCarpooling" class="text-lg ">Covoiturages</a>
+                        <a href="<?= BASE_URL ?>/?controller=page&action=searchCarpooling" class="text-lg ">Covoiturages</a>
                     </li>
                     <li>
                         <?php  if (isset($_SESSION['user'])): ?>
-                            <a href="http://localhost:8000/?controller=page&action=history" class="text-lg">Historique</a>
+                            <a href="<?= BASE_URL ?>/?controller=page&action=history" class="text-lg">Historique</a>
                         <?php elseif(isset($_SESSION['admin'])): ?>
-                            <a href="http://localhost:8000/?controller=admin&action=dashboardAdmin" class="text-lg">Dashboard</a>
+                            <a href="<?= BASE_URL ?>/?controller=admin&action=dashboardAdmin" class="text-lg">Dashboard</a>
                         <?php else: ?>
                             <a href="?controller=page&action=about" class="text-lg">A propos</a>
                         <?php endif; ?>
                     </li>
                     <li>
                         <?php  if (isset($_SESSION['user'])): ?>
-                            <a href="http://localhost:8000/?controller=page&action=dashboardUser" class="text-lg ">Mon espace</a>
+                            <a href="<?= BASE_URL ?>/?controller=page&action=dashboardUser" class="text-lg ">Mon espace</a>
                         <?php else: ?>
                             <a href="?controller=page&action=about" class="text-lg hidden ">A propos</a>
                         <?php endif; ?>
                     </li>
-                    <li><a href="http://localhost:8000/?controller=page&action=contact" class="text-lg ">Contact</a></li>
+                    <li><a href="<?= BASE_URL ?>/?controller=page&action=contact" class="text-lg ">Contact</a></li>
                 </ul>
             </div>
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1 justify-around">
                 <li>
-                        <a href="http://localhost:8000/?controller=page&action=searchCarpooling" class="text-lg">Covoiturages</a>
+                        <a href="<?= BASE_URL ?>/?controller=page&action=searchCarpooling" class="text-lg">Covoiturages</a>
                     </li>
                     <li>
                         <?php  if (isset($_SESSION['user'])): ?>
-                            <a href="http://localhost:8000/?controller=page&action=history" class="text-lg">Historique</a>
+                            <a href="<?= BASE_URL ?>/?controller=page&action=history" class="text-lg">Historique</a>
                             <?php elseif(isset($_SESSION['admin'])): ?>
-                            <a href="http://localhost:8000/?controller=admin&action=dashboardAdmin" class="text-lg">Dashboard</a>
+                            <a href="<?= BASE_URL ?>/?controller=admin&action=dashboardAdmin" class="text-lg">Dashboard</a>
                         <?php else: ?>
                             <a href="?controller=page&action=about" class="text-lg">A propos</a>
                         <?php endif; ?>
                     </li>
                     <li>
                         <?php  if (isset($_SESSION['user'])): ?>
-                            <a href="http://localhost:8000/?controller=page&action=dashboardUser" class="text-lg ">Mon espace</a>
+                            <a href="<?= BASE_URL ?>/?controller=page&action=dashboardUser" class="text-lg ">Mon espace</a>
                         <?php else: ?>
                             <a href="?controller=page&action=about" class="text-lg hidden ">A propos</a>
                         <?php endif; ?>
                     </li>
-                    <li><a href="http://localhost:8000/?controller=page&action=contact" class="text-lg ">Contact</a></li>
+                    <li><a href="<?= BASE_URL ?>/?controller=page&action=contact" class="text-lg ">Contact</a></li>
             </ul>
         </div>
         <div class="navbar-end">
             <?php  if (isset($_SESSION['user']) || isset($_SESSION['admin'])): ?>
-                <a href="http://localhost:8000/?controller=page&action=logout" class="btn btn-header">Déconnexion</a>
+                <a href="<?= BASE_URL ?>/?controller=page&action=logout" class="btn btn-header">Déconnexion</a>
             <?php else: ?>
                 <a href="?controller=page&action=register" class="btn btn-header">Connexion / Inscription</a>
             <?php endif; ?>
