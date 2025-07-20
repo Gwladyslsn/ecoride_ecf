@@ -20,7 +20,7 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
 
     <div class="navbar">
         <div class="navbar-start">
-            <a href="/asset/Templates/page/home.php">
+            <a href="<?= BASE_URL ?>/?controller=page&action=home">
                 <img src="/asset/image/logoEcoride.png" alt="Logo Ecoride" class="rounded-full logo">
             </a>
             <div class="dropdown">
