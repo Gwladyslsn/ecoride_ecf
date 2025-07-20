@@ -1,8 +1,12 @@
 <?php
-
 function getAllReview()
 {
-    $client = new MongoDB\Client("mongodb://mongodb:27017");
+    $uri = getenv('MONGODB_URI');
+    if (!$uri) {
+        die("Erreur : MONGODB_URI non défini\n");
+    }
+
+    $client = new MongoDB\Client($uri);
     $collection = $client->ecoride->reviews;
 
     $cursor = $collection->find();
@@ -12,5 +16,6 @@ function getAllReview()
         $reviews[] = $review;
     }
 
-    return $reviews; 
+    return $reviews;
 }
+

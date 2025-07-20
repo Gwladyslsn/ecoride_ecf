@@ -1,7 +1,6 @@
 <?php  
 
-//insertion données dans mongoDB
-require _ROOTPATH_ . 'vendor/autoload.php';
+require_once _ROOTPATH_ . 'vendor/autoload.php';
 use MongoDB\Client;
 date_default_timezone_set('Europe/Paris');
 
@@ -13,7 +12,13 @@ $note = (int)($input['selectedRating'] ?? 0);
 $comment = $input['textReviewEcoride'] ?? '';
 $date = (new DateTime())->format(DateTime::ATOM);
 
-$client = new Client("mongodb://mongodb:27017");
+// Récupérer l'URI MongoDB Atlas depuis la variable d'environnement
+$uri = getenv('MONGODB_URI');
+if (!$uri) {
+    die("Erreur : MONGODB_URI non défini\n");
+}
+
+$client = new Client($uri);
 $collection = $client->ecoride->reviews;
 
 $insertResult = $collection->insertOne([
@@ -21,10 +26,11 @@ $insertResult = $collection->insertOne([
     'email' => $email,
     'note' => $note,
     'comment' => $comment,
-    'created_at' => (new DateTime())->format(DateTime::ATOM)
-
+    'created_at' => $date
 ]);
 
-
-
-?>
+// Tu peux éventuellement renvoyer un retour JSON ici
+echo json_encode([
+    'success' => true,
+    'insertedId' => (string)$insertResult->getInsertedId()
+]);
