@@ -44,7 +44,7 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                         <?php  if (isset($_SESSION['user'])): ?>
                             <a href="<?= BASE_URL ?>/?controller=page&action=dashboardUser" class="text-lg ">Mon espace</a>
                         <?php else: ?>
-                            <a href="?controller=page&action=about" class="text-lg hidden ">A propos</a>
+                            <a href="<?= BASE_URL ?>?controller=page&action=about" class="text-lg hidden ">A propos</a>
                         <?php endif; ?>
                     </li>
                     <li><a href="<?= BASE_URL ?>/?controller=page&action=contact" class="text-lg ">Contact</a></li>
