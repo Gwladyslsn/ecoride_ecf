@@ -81,6 +81,7 @@ class PageController extends Controller
 
     protected function home()
     {
+        echo 'On est dans la fonction home()';
         $this->render('/Templates/page/home', []);
     }
 
