@@ -27,9 +27,7 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                 <div tabindex="0" role="button" class="btn lg:hidden btn-header">
                     Menu
                 </div>
-                <ul
-                    tabindex="0"
-                    class="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow">
+                <ul class="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow">
                     <li>
                         <a href="<?= BASE_URL ?>/?controller=page&action=searchCarpooling" class="text-lg ">Covoiturages</a>
                     </li>
@@ -39,7 +37,7 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                         <?php elseif(isset($_SESSION['admin'])): ?>
                             <a href="<?= BASE_URL ?>/?controller=admin&action=dashboardAdmin" class="text-lg">Dashboard</a>
                         <?php else: ?>
-                            <a href="?controller=page&action=about" class="text-lg">A propos</a>
+                            <a href="<?= BASE_URL ?>?controller=page&action=about" class="text-lg">A propos</a>
                         <?php endif; ?>
                     </li>
                     <li>
@@ -64,14 +62,14 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                             <?php elseif(isset($_SESSION['admin'])): ?>
                             <a href="<?= BASE_URL ?>/?controller=admin&action=dashboardAdmin" class="text-lg">Dashboard</a>
                         <?php else: ?>
-                            <a href="?controller=page&action=about" class="text-lg">A propos</a>
+                            <a href="<?= BASE_URL ?>?controller=page&action=about" class="text-lg">A propos</a>
                         <?php endif; ?>
                     </li>
                     <li>
                         <?php  if (isset($_SESSION['user'])): ?>
                             <a href="<?= BASE_URL ?>/?controller=page&action=dashboardUser" class="text-lg ">Mon espace</a>
                         <?php else: ?>
-                            <a href="?controller=page&action=about" class="text-lg hidden ">A propos</a>
+                            <a href="<?= BASE_URL ?>?controller=page&action=about" class="text-lg hidden ">A propos</a>
                         <?php endif; ?>
                     </li>
                     <li><a href="<?= BASE_URL ?>/?controller=page&action=contact" class="text-lg ">Contact</a></li>
@@ -81,7 +79,7 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
             <?php  if (isset($_SESSION['user']) || isset($_SESSION['admin'])): ?>
                 <a href="<?= BASE_URL ?>/?controller=page&action=logout" class="btn btn-header">Déconnexion</a>
             <?php else: ?>
-                <a href="?controller=page&action=register" class="btn btn-header">Connexion / Inscription</a>
+                <a href="<?= BASE_URL ?>?controller=page&action=register" class="btn btn-header">Connexion / Inscription</a>
             <?php endif; ?>
         </div>
     </div>
