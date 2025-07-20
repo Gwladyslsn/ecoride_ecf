@@ -7,7 +7,7 @@ require_once _ROOTPATH_ . '/src/Entity/getReview.php';
 $reviews = getAllReview();
 $groupedReviews = array_chunk($reviews, 2);
 
-
+echo 'test';
 
 ?>
 
