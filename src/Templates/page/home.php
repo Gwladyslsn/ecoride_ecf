@@ -1,8 +1,8 @@
 <?php
 
-require_once _ROOTPATH_ . '/src/Templates/header.php';
-require_once _ROOTPATH_ . '/src/Entity/auth.php';
-require_once _ROOTPATH_ . '/src/Entity/getReview.php';
+require_once _ROOTPATH_ . 'src/Templates/header.php';
+require_once _ROOTPATH_ . 'src/Entity/auth.php';
+require_once _ROOTPATH_ . 'src/Entity/getReview.php';
 
 $reviews = getAllReview();
 $groupedReviews = array_chunk($reviews, 2);
