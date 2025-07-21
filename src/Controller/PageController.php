@@ -86,7 +86,7 @@ class PageController extends Controller
 
     protected function register()
     {
-        $this->render('/Templates/page/register', []);
+        $this->render('Templates/page/register', []);
     }
 
     protected function contact()
