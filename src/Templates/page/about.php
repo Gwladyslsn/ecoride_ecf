@@ -92,8 +92,8 @@ require_once _ROOTPATH_ . '/src/Templates/header.php'; ?>
 <section class="cta-section">
     <div class="container-about">
         <h2 style="margin-bottom: 20px;">Et Demain ?</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 15px;">José et Camille ne veulent pas faire d'EcoRide un géant impersonnel.</p>
-        <p style="font-size: 1.1rem; margin-bottom: 30px;">Ils veulent que cela reste un outil proche des gens, ancré dans les territoires, et utile à la transition écologique.</p>
+        <p style="font-size: 1.2rem; margin-bottom: 15px;">José ne veut pas faire d'EcoRide un géant impersonnel.</p>
+        <p style="font-size: 1.1rem; margin-bottom: 30px;">Il veut que cela reste un outil proche des gens, ancré dans les territoires, et utile à la transition écologique.</p>
         <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 20px;">Parce que chaque trajet compte. Parce qu'on peut changer les choses… un covoit' à la fois.</p>
         <button class="cta-button">
         <a href="<?= BASE_URL ?>?controller=page&action=register">Rejoindre la Communauté EcoRide</a>
