@@ -39,6 +39,8 @@ class Controller
         $filePath = _ROOTPATH_ . 'src/' . $path . '.php';
 
         try {
+            echo "<p>Path résolu : $filePath</p>";
+            
             if (!file_exists($filePath)) {
                 throw new \Exception(message: "Fichier non trouvé : " . $filePath);
             } else {
