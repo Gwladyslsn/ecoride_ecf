@@ -7,7 +7,7 @@ require_once _ROOTPATH_ . 'src/Entity/getReview.php';
 $reviews = getAllReview();
 $groupedReviews = array_chunk($reviews, 2);
 
-echo 'test';
+echo "Contenu home.php chargé !";
 
 ?>
 
@@ -156,7 +156,7 @@ echo 'test';
 
 
 
-
+<?php echo "<!-- Fin du fichier home.php -->"; ?>
 <script src="/asset/js/searchForm.js"></script>
 <script src="/asset/js/home.js"></script>
 

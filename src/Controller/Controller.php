@@ -36,16 +36,17 @@ class Controller
 
     protected function render(string $path, array $params = []): void
     {
-        $filePath = _ROOTPATH_ . 'src/' . $path . '.php';
+        $filePath =_ROOTPATH_ . 'src/' . $path . '.php';
 
         try {
-            echo "<p>Path résolu : $filePath</p>";
             
             if (!file_exists($filePath)) {
                 throw new \Exception(message: "Fichier non trouvé : " . $filePath);
             } else {
+                echo "Chemin résolu : $filePath<br>";
                 extract($params); //Extrait chaque ligne du tableau et crée des variables pour chacune
                 require_once $filePath;
+                
             }
         } catch (\Exception $e) {
             echo "<h1>Erreur de rendu</h1>";

@@ -1,8 +1,7 @@
 <?php
-
-if (session_status() === PHP_SESSION_NONE) {
+/*if (session_status() === PHP_SESSION_NONE) {
     session_start();
-};
+}
 
 /* Si connecté */
 function ifLog(string $redirectTo = 'http://localhost:8000/?controller=page&action=dashboardUser'): void
@@ -11,7 +10,7 @@ function ifLog(string $redirectTo = 'http://localhost:8000/?controller=page&acti
         header("Location: $redirectTo");
         exit();
     }
-};
+}
 
 /* Si pas connecté */
 function ifNotLog(string $redirectTo = 'http://localhost:8000/?controller=page&action=register'): void
@@ -20,7 +19,7 @@ function ifNotLog(string $redirectTo = 'http://localhost:8000/?controller=page&a
         header("Location: $redirectTo");
         exit();
     }
-};
+}
 
 function logout(string $redirectTo = 'http://localhost:8000/?controller=page&action=home'){
     session_unset();
