@@ -15,9 +15,9 @@ class Controller
                         $pageController->route();
                         break;
                     case 'admin':
-                        // Charger controller page
-                        $AdminController = new AdminController();
-                        $AdminController->route();
+                        // Charger controller admin
+                        $adminController = new AdminController();
+                        $adminController->route();
                         break;
                     default:
                         throw new \Exception("Le controller n'existe pas");
