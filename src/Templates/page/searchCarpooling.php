@@ -45,16 +45,16 @@ if ($departure && $arrival && $date) {
 
 <section class="default-trip container-trip">
     <?php foreach ($trips as $trip): ?>
-        <?php include_once _ROOTPATH_ . 'src/Templates/trip_item.php'; ?>
+        <?php include _ROOTPATH_ . 'src/Templates/trip_item.php'; ?>
     <?php endforeach; ?>
 </section>
 
 <section>
-    <?php 
+    <?php
         if (!$trips){?>
             <div id="results" class="text-center mb-5 text-lg">Aucun eco'Driver n'a proposé ce trajet pour le moment</div>
-            <img src="../asset/image/noresult.jpg" alt="image recherche trajet" class="w-400 rounded-lg mx-auto">
-        <?php };?>
+            <img src="../asset/image/noresult.jpg" alt="logo recherche trajet" class="w-400 rounded-lg mx-auto">
+        <?php }?>
 </section>
 
 
