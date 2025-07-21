@@ -1,6 +1,5 @@
 <?php
 require_once _ROOTPATH_ . '/src/Entity/auth.php';
-require_once _ROOTPATH_ . 'config/config.php';
 ?>
 
 
