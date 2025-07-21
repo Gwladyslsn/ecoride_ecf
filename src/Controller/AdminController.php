@@ -31,7 +31,8 @@ class AdminController extends Controller
 
     protected function createAdmin()
     {
-        $this->render('/Entity/createAdmin', []);
+        require_once _ROOTPATH_ . '/src/Entity/createAdmin.php';
+        exit;
     }
 
     protected function dashboardAdmin()
