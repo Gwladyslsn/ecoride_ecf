@@ -4,11 +4,16 @@
 try
 {
     global $pdo;
-    $pdo = new PDO(
+    /*$pdo = new PDO(
         'mysql:host=db' . ';dbname=' . getenv('db_name') . ';charset=utf8mb4',
         getenv('db_user'),
         getenv('db_password')
-    );
+    );*/
+    $pdo = new PDO(
+    'mysql:host=db;dbname=ecoride;charset=utf8mb4',
+    'gwld',
+    'pass2gwld'
+);
 
     if (!isset($pdo)) {
     die("La connexion PDO n'a pas été créée !");
