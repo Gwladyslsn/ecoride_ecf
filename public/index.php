@@ -10,3 +10,6 @@ use App\Controller\Controller;
 $controller = new Controller();
 $controller->route();
 
+echo "Contrôleur demandé : " . $controller . "<br>";
+echo "Action demandée : " . $action . "<br>";
+
