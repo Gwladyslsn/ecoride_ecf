@@ -16,10 +16,10 @@ function getAllTrips(PDO $pdo): array
     $stmt->execute();
     $trips = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if (!$trips) {
+    /*if (!$trips) {
         echo json_encode(['success' => false, 'message' => 'Aucun trajet']);
         exit;
-    }
+    }*/
 
     return $trips;
 }
