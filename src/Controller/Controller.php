@@ -43,7 +43,6 @@ class Controller
             if (!file_exists($filePath)) {
                 throw new \Exception(message: "Fichier non trouvé : " . $filePath);
             } else {
-                echo "Chemin résolu : $filePath<br>";
                 extract($params); //Extrait chaque ligne du tableau et crée des variables pour chacune
                 require_once $filePath;
                 
