@@ -55,7 +55,7 @@ if (!$id_user) {
     exit;
 }
 
-/* Récupérer id_car liée à utilisateur */ 
+/* Récupérer id_car liée à utilisateur */
 $sqlCar = "SELECT id_car FROM car WHERE id_user = :id_user";
 $stmtCar = $pdo->prepare($sqlCar);
 $stmtCar->execute(['id_user' => $id_user]);
@@ -85,6 +85,7 @@ foreach ($allowedFields as $field) {
 
 if (!checkCityExists($params['departure_city'])) {
     $errors[] = "La ville de départ n'existe pas.";
+    echo json_encode(['success' => false, 'message' => "La ville de départ n'existe pas."]);
     exit;
 }
 
@@ -92,6 +93,7 @@ sleep(1);
 
 if (!checkCityExists($params['arrival_city'])) {
     $errors[] = "La ville d'arrivée n'existe pas.";
+    echo json_encode(['success' => false, 'message' => "La ville d'arrivée n'existe pas."]);
     exit;
 }
 
