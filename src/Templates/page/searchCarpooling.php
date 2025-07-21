@@ -14,6 +14,8 @@ if ($departure && $arrival && $date) {
 } else {
     $trips = getAllTrips($pdo);
 }
+
+var_dump($trips);
 ?>
 
 <!--SearchBar-->
