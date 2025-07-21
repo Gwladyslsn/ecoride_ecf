@@ -24,9 +24,9 @@ $groupedReviews = array_chunk($reviews, 2);
             </p>
             <button class="btn btn-home mt-5">
                 <?php if (isset($_SESSION['user'])): ?>
-                    <a href="<?= BASE_URL ?>/?controller=page&action=about">A propos de nous</a>
+                    <a href="<?= BASE_URL ?>?controller=page&action=about">A propos de nous</a>
                 <?php else: ?>
-                    <a href="<?= BASE_URL ?>/?controller=page&action=register" rel="noopener noreferrer">Nous rejoindre</a>
+                    <a href="<?= BASE_URL ?>?controller=page&action=register" rel="noopener noreferrer">Nous rejoindre</a>
                 <?php endif; ?>
             </button>
         </div>
