@@ -1,9 +1,6 @@
 <?php
 require_once _ROOTPATH_ . '/src/Entity/auth.php';
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -55,7 +52,7 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1 justify-around">
                 <li>
-                        <a href="<?= BASE_URL ?>/?controller=page&action=searchCarpooling" class="text-lg">Covoiturages</a>
+                        <a href="<?= BASE_URL ?>?controller=page&action=searchCarpooling" class="text-lg">Covoiturages</a>
                     </li>
                     <li>
                         <?php  if (isset($_SESSION['user'])): ?>
