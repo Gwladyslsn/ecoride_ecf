@@ -1,5 +1,7 @@
 <?php
 require_once _ROOTPATH_ . '/src/Entity/auth.php';
+
+
 ?>
 
 
@@ -17,10 +19,10 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
 </head>
 
 <body>
-
+<pre><?= BASE_URL ?></pre>
     <div class="navbar">
         <div class="navbar-start">
-            <a href="<?= BASE_URL ?>/?controller=page&action=home">
+            <a href="<?= BASE_URL ?>?controller=page&action=home">
                 <img src="/asset/image/logoEcoride.png" alt="Logo Ecoride" class="rounded-full logo">
             </a>
             <div class="dropdown">
@@ -29,7 +31,7 @@ require_once _ROOTPATH_ . '/src/Entity/auth.php';
                 </div>
                 <ul class="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow">
                     <li>
-                        <a href="<?= BASE_URL ?>/?controller=page&action=searchCarpooling" class="text-lg ">Covoiturages</a>
+                        <a href="<?= BASE_URL ?>?controller=page&action=searchCarpooling" class="text-lg ">Covoiturages</a>
                     </li>
                     <li>
                         <?php  if (isset($_SESSION['user'])): ?>
